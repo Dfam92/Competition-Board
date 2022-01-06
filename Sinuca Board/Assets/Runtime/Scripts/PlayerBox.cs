@@ -6,12 +6,16 @@ using UnityEngine.UI;
 
 public class PlayerBox : MonoBehaviour
 {
-    private string saveName;
-    private string nameOfPlayer;
+    [SerializeField] TextMeshProUGUI saveName;
+    [SerializeField] TextMeshProUGUI nameOfPlayer;
+    [SerializeField] GameObject inputField;
+    private string loadedName;
 
-    public TextMeshProUGUI inputText;
-    public TextMeshProUGUI loadedName;
-
+    private void Awake()
+    {
+        loadedName = PlayerPrefs.GetString("PlayerName", nameOfPlayer.text);
+        nameOfPlayer.text = loadedName;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +25,16 @@ public class PlayerBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nameOfPlayer = PlayerPrefs.GetString("name", "none");
-        loadedName.text = nameOfPlayer;
+        
+      
         
     }
 
     public void SetName()
     {
-        saveName = inputText.text;
-        PlayerPrefs.SetString("name", saveName);
+        nameOfPlayer.text = saveName.text;
+        PlayerPrefs.SetString("PlayerName", nameOfPlayer.text);
+        inputField.SetActive(false);
+
     }
 }
