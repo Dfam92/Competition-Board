@@ -9,6 +9,7 @@ public class PlayerBox : MonoBehaviour
     [SerializeField] TextMeshProUGUI saveName;
     [SerializeField] TextMeshProUGUI nameOfPlayer;
     [SerializeField] GameObject inputField;
+    [SerializeField] GameObject playerName;
     private string loadedName;
 
     private void Awake()
@@ -35,6 +36,7 @@ public class PlayerBox : MonoBehaviour
         nameOfPlayer.text = saveName.text;
         PlayerPrefs.SetString("PlayerName", nameOfPlayer.text);
         inputField.SetActive(false);
+        playerName.SetActive(true);
 
     }
 }
