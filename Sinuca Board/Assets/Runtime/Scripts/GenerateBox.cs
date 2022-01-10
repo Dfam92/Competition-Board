@@ -5,8 +5,9 @@ using UnityEngine;
 public class GenerateBox : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
-    [SerializeField] GameObject playerBox;
+    [SerializeField] PlayerBox playerBox;
     [SerializeField] List<ObjectPos> objectPos;
+    public List<PlayerBox> boxes;
     
 
     // Start is called before the first frame update
@@ -14,13 +15,15 @@ public class GenerateBox : MonoBehaviour
     {
         for (int i = 0; i < gameManager.numberOfPlayers ; i++)
         {
-            Instantiate(playerBox, objectPos[i].transform.position, Quaternion.identity, this.transform);
+            boxes.Add(playerBox);
+            Instantiate(boxes[i], objectPos[i].transform.position, Quaternion.identity, this.transform);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
+    private void Start()
+    {
+       
+    }
+
+
 }

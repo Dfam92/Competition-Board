@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GenerateBox generateBox;
     [SerializeField] GameObject numberOfPlayerMenu;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject boxGenerator;
+    [SerializeField] GameObject battleMenu;
     [SerializeField] Text inputOfPlayersText;
     public int numberOfPlayers;
     
@@ -46,5 +48,19 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         boxGenerator.SetActive(true);
 
+    }
+
+    public void UpdateScore()
+    {
+        generateBox.boxes[0].victoriesValues.text += 1;
+        Debug.Log(generateBox.boxes[0].victoriesValues.text);
+        battleMenu.SetActive(false);
+        boxGenerator.SetActive(true);
+    }
+
+    public void PlayNextGame()
+    {
+        battleMenu.SetActive(true);
+        boxGenerator.SetActive(false);
     }
 }
