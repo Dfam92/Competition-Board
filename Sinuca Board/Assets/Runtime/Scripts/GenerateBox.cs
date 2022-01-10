@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class GenerateBox : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] GameObject playerBox;
     [SerializeField] List<ObjectPos> objectPos;
-    [SerializeField] int numberOfPlayers;
+    
 
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        
-        for (int i = 0; i < numberOfPlayers ; i++)
+        for (int i = 0; i < gameManager.numberOfPlayers ; i++)
         {
             Instantiate(playerBox, objectPos[i].transform.position, Quaternion.identity, this.transform);
         }
-        
     }
 
     // Update is called once per frame
