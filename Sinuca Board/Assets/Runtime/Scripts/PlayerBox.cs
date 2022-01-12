@@ -8,9 +8,6 @@ public class PlayerBox : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI saveName;
     [SerializeField] TextMeshProUGUI nameOfPlayer;
-    public TextMeshProUGUI victoriePoint;
-    public TextMeshProUGUI playedGames;
-    public TextMeshProUGUI ballInRole;
     [SerializeField] GameObject inputField;
     [SerializeField] GameObject playerName;
    

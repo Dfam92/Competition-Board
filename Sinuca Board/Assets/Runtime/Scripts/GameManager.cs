@@ -5,12 +5,35 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] Battle battle;
     [SerializeField] GenerateBox generateBox;
     [SerializeField] GameObject numberOfPlayerMenu;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject boxGenerator;
     [SerializeField] GameObject battleMenu;
     [SerializeField] Text inputOfPlayersText;
+    /*[SerializeField] Player p1;
+    [SerializeField] Player p2;
+    [SerializeField] Player p3;
+    [SerializeField] Player p4;
+    [SerializeField] Player p5;
+    [SerializeField] Player p6;
+    [SerializeField] Player p7;
+    [SerializeField] Player p8;
+    [SerializeField] Player p9;
+    [SerializeField] Player p10;
+    [SerializeField] Player p11;
+    [SerializeField] Player p12;
+    [SerializeField] Player p13;
+    [SerializeField] Player p14;
+    [SerializeField] Player p15;
+    [SerializeField] Player p16;
+    [SerializeField] Player p17;
+    [SerializeField] Player p18;*/
+    public List<Player> players;
+
+    private Player playerWhoWin;
+
     public int numberOfPlayers;
     private int gamesPlayed;
     private int victories;
@@ -51,35 +74,39 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore()
     {
+        
         battleMenu.SetActive(false);
         boxGenerator.SetActive(true);
-        IncreasePlayedGames(1);
-        IncreaseVictories(1);
-        BallInRole(1);
-       
+        //IncreasePlayedGames(playerWhoWin, 1);
+        //IncreaseVictories(playerWhoWin,1);
+        BallInRole(players[0],battle.ballInputValue1);
+        Debug.Log(battle.ballInputP1.text);
     }
 
     public void PlayNextGame()
     {
         battleMenu.SetActive(true);
+        boxGenerator.SetActive(false);
     }
 
-    private void IncreasePlayedGames(int value)
+
+    private void IncreasePlayedGames(Player player, int value)
     {
         gamesPlayed += value;
-        generateBox.boxes[0].playedGames.text = " " + gamesPlayed;
+        player.playedGames.text =" " + gamesPlayed;
     }
 
-    private void IncreaseVictories(int value)
+    private void IncreaseVictories(Player player,int value)
     {
         victories += value;
-        generateBox.boxes[0].victoriePoint.text = " " + victories;
+        player.victories.text = " " + victories;
     }
 
-    private void BallInRole(int value)
+    private void BallInRole(Player player,int value)
     {
         ballInRole += value;
-        generateBox.boxes[0].ballInRole.text = " " + ballInRole;
+        player.ballInRole.text = " " + ballInRole;
+       
     }
 
 
