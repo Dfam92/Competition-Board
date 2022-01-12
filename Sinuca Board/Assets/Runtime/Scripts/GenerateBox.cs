@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GenerateBox : MonoBehaviour
 {
@@ -13,16 +14,16 @@ public class GenerateBox : MonoBehaviour
     // Start is called before the first frame update
     private void OnEnable()
     {
-        for (int i = 0; i < gameManager.numberOfPlayers ; i++)
-        {
-            boxes.Add(playerBox);
-            Instantiate(boxes[i], objectPos[i].transform.position, Quaternion.identity, this.transform);
-        }
+       
         
     }
     private void Start()
     {
-       
+        for (int i = 0; i < gameManager.numberOfPlayers; i++)
+        {
+            boxes.Add(playerBox);
+            Instantiate(boxes[i], objectPos[i].transform.position, Quaternion.identity, transform);
+        }
     }
 
 

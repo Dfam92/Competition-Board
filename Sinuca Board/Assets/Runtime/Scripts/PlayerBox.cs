@@ -8,17 +8,16 @@ public class PlayerBox : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI saveName;
     [SerializeField] TextMeshProUGUI nameOfPlayer;
+    public TextMeshProUGUI victoriePoint;
+    public TextMeshProUGUI playedGames;
+    public TextMeshProUGUI ballInRole;
     [SerializeField] GameObject inputField;
     [SerializeField] GameObject playerName;
-    public TextMeshProUGUI victoriesValues;
-    public TextMeshProUGUI playedGamesValues;
-    public TextMeshProUGUI ballsInRoleValues;
-
+   
     private string loadedName;
 
     private void Awake()
     {
-       
         loadedName = PlayerPrefs.GetString("PlayerName", nameOfPlayer.text);
         nameOfPlayer.text = loadedName;
     }
@@ -29,10 +28,7 @@ public class PlayerBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        victoriesValues.text = " " + 0;
-        playedGamesValues.text = " " + 0;
-        ballsInRoleValues.text = " " + 0;
-
+       
     }
 
     // Update is called once per frame

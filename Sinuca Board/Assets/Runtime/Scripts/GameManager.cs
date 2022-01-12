@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject battleMenu;
     [SerializeField] Text inputOfPlayersText;
     public int numberOfPlayers;
-    
+    private int gamesPlayed;
+    private int victories;
+    private int ballInRole;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,6 @@ public class GameManager : MonoBehaviour
     {
         numberOfPlayerMenu.SetActive(true);
         mainMenu.SetActive(false);
-
     }
 
     public void SetPlayers()
@@ -39,28 +40,51 @@ public class GameManager : MonoBehaviour
         
         Debug.Log(numberOfPlayers);
         Debug.Log(inputOfPlayersText.text);
-        StartCoroutine(MainTitleSpawn());
-        
+        StartCoroutine(MainTitleSpawn()); 
     }
 
     IEnumerator MainTitleSpawn()
     {
         yield return new WaitForSeconds(1);
         boxGenerator.SetActive(true);
-
     }
 
     public void UpdateScore()
     {
-        generateBox.boxes[0].victoriesValues.text += 1;
-        Debug.Log(generateBox.boxes[0].victoriesValues.text);
         battleMenu.SetActive(false);
         boxGenerator.SetActive(true);
+        IncreasePlayedGames(1);
+        IncreaseVictories(1);
+        BallInRole(1);
+       
     }
 
     public void PlayNextGame()
     {
         battleMenu.SetActive(true);
-        boxGenerator.SetActive(false);
+    }
+
+    private void IncreasePlayedGames(int value)
+    {
+        gamesPlayed += value;
+        generateBox.boxes[0].playedGames.text = " " + gamesPlayed;
+    }
+
+    private void IncreaseVictories(int value)
+    {
+        victories += value;
+        generateBox.boxes[0].victoriePoint.text = " " + victories;
+    }
+
+    private void BallInRole(int value)
+    {
+        ballInRole += value;
+        generateBox.boxes[0].ballInRole.text = " " + ballInRole;
+    }
+
+
+    public void ResetData()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }

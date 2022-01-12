@@ -43,7 +43,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -581.1675, y: 408.06555}
+  m_AnchoredPosition: {x: -31.8, y: 408.06555}
   m_SizeDelta: {x: 543.7142, y: 62.9389}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &257400497951331209
@@ -98,11 +98,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveName: {fileID: 257400499241424934}
   nameOfPlayer: {fileID: 257400498224386083}
+  victoriePoint: {fileID: 7438669445584266030}
+  playedGames: {fileID: 7438669445508914102}
+  ballInRole: {fileID: 7438669445344216977}
   inputField: {fileID: 257400498024070609}
   playerName: {fileID: 257400498224386141}
-  victoriesValues: {fileID: 7438669445584266030}
-  playedGamesValues: {fileID: 7438669445508914102}
-  ballsInRoleValues: {fileID: 7438669445344216977}
 --- !u!1 &257400498024070609
 GameObject:
   m_ObjectHideFlags: 0
