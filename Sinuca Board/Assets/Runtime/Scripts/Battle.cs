@@ -6,19 +6,31 @@ using UnityEngine.UI;
 
 public class Battle : MonoBehaviour
 {
+    //[SerializeField] ImageSelection imageLoader;
     [SerializeField] GenerateBox generateBox;
     [SerializeField] GameManager gameManager;
+    [SerializeField] RawImage p1Image;
+    [SerializeField] RawImage p2Image;
+    [SerializeField] TextMeshProUGUI p1Name;
+    [SerializeField] TextMeshProUGUI p2Name;
     public Text ballInputP1;
     public Text ballInputP2;
     public int ballInputValue1;
     public int ballInputValue2;
+    public bool p2IsDifferent;
+
+    int[,] possibleGames;
 
     // Start is called before the first frame update
     void Start()
     {
         
-    }
+        p1Image.texture = gameManager.players[0].playerImage;
+        p2Image.texture = gameManager.players[1].playerImage;
+        p1Name.text = gameManager.players[0].savedName.text;
+        p2Name.text = gameManager.players[1].savedName.text;
 
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,17 +44,27 @@ public class Battle : MonoBehaviour
 
     public void StartBatlle()
     {
-        var p1 = gameManager.players[Random.Range(0, generateBox.boxes.Count)];
-        var p2 = gameManager.players[Random.Range(0, generateBox.boxes.Count)];
+       
 
-        do
+        while (!p2IsDifferent)
         {
-            p2 = gameManager.players[Random.Range(0, generateBox.boxes.Count)];
-        } while (p2 == p1);
-       
-       
-        Debug.Log(p1 + " = p1");
-        Debug.Log(p2 + "= p2");
+            var firstNumber = Random.Range(0, gameManager.players.Count);
+            var secondNumber = Random.Range(0, gameManager.players.Count);
+            Player p1 = gameManager.players[firstNumber];
+            Player p2 = gameManager.players[secondNumber];
+            
+            if (firstNumber != secondNumber)
+            {
+                possibleGames = new int[firstNumber, secondNumber];
+                Debug.Log(firstNumber + "= p1");
+                Debug.Log(secondNumber+ "= p2");
+                Debug.Log(possibleGames);
+                print(possibleGames);
+                p2IsDifferent = true;
+            }
+        }
+
+        
     }
 
 }

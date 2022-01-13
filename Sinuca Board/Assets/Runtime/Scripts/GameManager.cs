@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Battle battle;
-    [SerializeField] GenerateBox generateBox;
     [SerializeField] GameObject numberOfPlayerMenu;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject boxGenerator;
@@ -87,6 +86,7 @@ public class GameManager : MonoBehaviour
     {
         battleMenu.SetActive(true);
         boxGenerator.SetActive(false);
+        battle.p2IsDifferent = false;
     }
 
 
@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
        
     }
 
+    
 
     public void ResetData()
     {
