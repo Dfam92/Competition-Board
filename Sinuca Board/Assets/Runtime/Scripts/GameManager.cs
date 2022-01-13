@@ -5,30 +5,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] Battle battle;
+   
     [SerializeField] GameObject numberOfPlayerMenu;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject boxGenerator;
     [SerializeField] GameObject battleMenu;
     [SerializeField] Text inputOfPlayersText;
-    /*[SerializeField] Player p1;
-    [SerializeField] Player p2;
-    [SerializeField] Player p3;
-    [SerializeField] Player p4;
-    [SerializeField] Player p5;
-    [SerializeField] Player p6;
-    [SerializeField] Player p7;
-    [SerializeField] Player p8;
-    [SerializeField] Player p9;
-    [SerializeField] Player p10;
-    [SerializeField] Player p11;
-    [SerializeField] Player p12;
-    [SerializeField] Player p13;
-    [SerializeField] Player p14;
-    [SerializeField] Player p15;
-    [SerializeField] Player p16;
-    [SerializeField] Player p17;
-    [SerializeField] Player p18;*/
+    [SerializeField] Battle battle;
     public List<Player> players;
 
     private Player playerWhoWin;
@@ -73,7 +56,6 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore()
     {
-        
         battleMenu.SetActive(false);
         boxGenerator.SetActive(true);
         //IncreasePlayedGames(playerWhoWin, 1);
@@ -88,7 +70,6 @@ public class GameManager : MonoBehaviour
         boxGenerator.SetActive(false);
         battle.p2IsDifferent = false;
     }
-
 
     private void IncreasePlayedGames(Player player, int value)
     {

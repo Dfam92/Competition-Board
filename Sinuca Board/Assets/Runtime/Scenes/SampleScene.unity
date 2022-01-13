@@ -449,10 +449,11 @@ MonoBehaviour:
   playedGames: {fileID: 2083503700}
   ballInRole: {fileID: 1407703618}
   playerImage: {fileID: 0}
-  playerName: {fileID: 1113818682}
+  myGames: 
   savedName: {fileID: 1775103631}
   inputField: {fileID: 1470373348}
   showName: {fileID: 1775103629}
+  playerName: {fileID: 1113818682}
 --- !u!114 &58315350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1657,10 +1658,11 @@ MonoBehaviour:
   playedGames: {fileID: 257051893}
   ballInRole: {fileID: 379000164}
   playerImage: {fileID: 0}
-  playerName: {fileID: 736738}
+  myGames: 
   savedName: {fileID: 1917006507}
   inputField: {fileID: 1165328624}
   showName: {fileID: 1917006505}
+  playerName: {fileID: 736738}
 --- !u!114 &156849120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1731,10 +1733,11 @@ MonoBehaviour:
   playedGames: {fileID: 986288258}
   ballInRole: {fileID: 1887917311}
   playerImage: {fileID: 0}
-  playerName: {fileID: 1206747438}
+  myGames: 
   savedName: {fileID: 1269827218}
   inputField: {fileID: 418421930}
   showName: {fileID: 1269827216}
+  playerName: {fileID: 1206747438}
 --- !u!114 &159824900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3639,10 +3642,11 @@ MonoBehaviour:
   playedGames: {fileID: 798708047}
   ballInRole: {fileID: 1842665638}
   playerImage: {fileID: 2800000, guid: ac83e47d4f39e294b8c6dba07f901dcb, type: 3}
-  playerName: {fileID: 1448508019}
+  myGames: 
   savedName: {fileID: 121404022}
   inputField: {fileID: 1640254620}
   showName: {fileID: 121404020}
+  playerName: {fileID: 1448508019}
 --- !u!1 &347569642
 GameObject:
   m_ObjectHideFlags: 0
@@ -4570,7 +4574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &379538757
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4877,10 +4881,11 @@ MonoBehaviour:
   playedGames: {fileID: 1543550297}
   ballInRole: {fileID: 543448283}
   playerImage: {fileID: 0}
-  playerName: {fileID: 392197111}
+  myGames: 
   savedName: {fileID: 133408343}
   inputField: {fileID: 1245720065}
   showName: {fileID: 133408341}
+  playerName: {fileID: 392197111}
 --- !u!114 &405845765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6058,10 +6063,11 @@ MonoBehaviour:
   playedGames: {fileID: 5396493247603324213}
   ballInRole: {fileID: 5396493247841806610}
   playerImage: {fileID: 2800000, guid: 5c3858960ddd04b42a81715f4019dd31, type: 3}
-  playerName: {fileID: 1382639880}
+  myGames: 
   savedName: {fileID: 558600223}
   inputField: {fileID: 441228294}
   showName: {fileID: 558600221}
+  playerName: {fileID: 1382639880}
 --- !u!1 &491122499
 GameObject:
   m_ObjectHideFlags: 0
@@ -6800,10 +6806,11 @@ MonoBehaviour:
   playedGames: {fileID: 2001211329}
   ballInRole: {fileID: 494029684}
   playerImage: {fileID: 0}
-  playerName: {fileID: 1219778109}
+  myGames: 
   savedName: {fileID: 1079931612}
   inputField: {fileID: 1454819776}
   showName: {fileID: 1079931610}
+  playerName: {fileID: 1219778109}
 --- !u!114 &527273752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8156,10 +8163,11 @@ MonoBehaviour:
   playedGames: {fileID: 578727676}
   ballInRole: {fileID: 1432078584}
   playerImage: {fileID: 0}
-  playerName: {fileID: 582078}
+  myGames: 
   savedName: {fileID: 1802848122}
   inputField: {fileID: 434023882}
   showName: {fileID: 1802848119}
+  playerName: {fileID: 582078}
 --- !u!1 &694566738
 GameObject:
   m_ObjectHideFlags: 0
@@ -8844,10 +8852,11 @@ MonoBehaviour:
   playedGames: {fileID: 2001683470}
   ballInRole: {fileID: 1537777642}
   playerImage: {fileID: 0}
-  playerName: {fileID: 450798859}
+  myGames: 
   savedName: {fileID: 857296016}
   inputField: {fileID: 347569642}
   showName: {fileID: 857296014}
+  playerName: {fileID: 450798859}
 --- !u!114 &738681903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10684,10 +10693,11 @@ MonoBehaviour:
   playedGames: {fileID: 243754951}
   ballInRole: {fileID: 1226358127}
   playerImage: {fileID: 0}
-  playerName: {fileID: 664705172}
+  myGames: 
   savedName: {fileID: 2001682579}
   inputField: {fileID: 1848919663}
   showName: {fileID: 2001682577}
+  playerName: {fileID: 664705172}
 --- !u!114 &930391706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11062,10 +11072,11 @@ MonoBehaviour:
   playedGames: {fileID: 762150593}
   ballInRole: {fileID: 1558788129}
   playerImage: {fileID: 0}
-  playerName: {fileID: 694566740}
+  myGames: 
   savedName: {fileID: 174457659}
   inputField: {fileID: 865547655}
   showName: {fileID: 174457657}
+  playerName: {fileID: 694566740}
 --- !u!114 &982305975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15796,10 +15807,11 @@ MonoBehaviour:
   playedGames: {fileID: 1406468739}
   ballInRole: {fileID: 1622012302}
   playerImage: {fileID: 0}
-  playerName: {fileID: 2000499311}
+  myGames: 
   savedName: {fileID: 1177174423}
   inputField: {fileID: 1610441020}
   showName: {fileID: 1177174421}
+  playerName: {fileID: 2000499311}
 --- !u!114 &1374614948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16975,10 +16987,11 @@ MonoBehaviour:
   playedGames: {fileID: 1835951265}
   ballInRole: {fileID: 1867660771}
   playerImage: {fileID: 0}
-  playerName: {fileID: 736508976}
+  myGames: 
   savedName: {fileID: 1031824955}
   inputField: {fileID: 1298792870}
   showName: {fileID: 1031824953}
+  playerName: {fileID: 736508976}
 --- !u!1 &1448508017
 GameObject:
   m_ObjectHideFlags: 0
@@ -17831,10 +17844,11 @@ MonoBehaviour:
   playedGames: {fileID: 1170634938}
   ballInRole: {fileID: 1802041244}
   playerImage: {fileID: 0}
-  playerName: {fileID: 907995660}
+  myGames: 
   savedName: {fileID: 1382468030}
   inputField: {fileID: 1816098832}
   showName: {fileID: 1382468028}
+  playerName: {fileID: 907995660}
 --- !u!114 &1500977901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18173,10 +18187,11 @@ MonoBehaviour:
   playedGames: {fileID: 335428721}
   ballInRole: {fileID: 1351761686}
   playerImage: {fileID: 0}
-  playerName: {fileID: 333325880}
+  myGames: 
   savedName: {fileID: 1919178980}
   inputField: {fileID: 2064139544}
   showName: {fileID: 1919178978}
+  playerName: {fileID: 333325880}
 --- !u!114 &1554529051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18691,10 +18706,11 @@ MonoBehaviour:
   playedGames: {fileID: 2109208114}
   ballInRole: {fileID: 709840341}
   playerImage: {fileID: 0}
-  playerName: {fileID: 1120495866}
+  myGames: 
   savedName: {fileID: 1072226667}
   inputField: {fileID: 267088231}
   showName: {fileID: 1072226665}
+  playerName: {fileID: 1120495866}
 --- !u!114 &1604862838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22542,10 +22558,11 @@ MonoBehaviour:
   playedGames: {fileID: 896837060}
   ballInRole: {fileID: 497337764}
   playerImage: {fileID: 0}
-  playerName: {fileID: 1325938183}
+  myGames: 
   savedName: {fileID: 767831632}
   inputField: {fileID: 371689674}
   showName: {fileID: 767831630}
+  playerName: {fileID: 1325938183}
 --- !u!114 &1855683604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23978,12 +23995,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef73a044ff18e9140b05c847c449c0bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battle: {fileID: 1836222457}
   numberOfPlayerMenu: {fileID: 954407871}
   mainMenu: {fileID: 1647755694}
   boxGenerator: {fileID: 268874290}
   battleMenu: {fileID: 1836222453}
   inputOfPlayersText: {fileID: 1407692242}
+  battle: {fileID: 1836222457}
   players:
   - {fileID: 468391240}
   - {fileID: 337813797}
@@ -24538,10 +24555,11 @@ MonoBehaviour:
   playedGames: {fileID: 151929156}
   ballInRole: {fileID: 369473506}
   playerImage: {fileID: 0}
-  playerName: {fileID: 839953406}
+  myGames: 
   savedName: {fileID: 1825221971}
   inputField: {fileID: 455239949}
   showName: {fileID: 1825221969}
+  playerName: {fileID: 839953406}
 --- !u!114 &2095242669
 MonoBehaviour:
   m_ObjectHideFlags: 0

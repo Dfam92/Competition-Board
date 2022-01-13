@@ -10,10 +10,11 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI playedGames;
     public TextMeshProUGUI ballInRole;
     public Texture2D playerImage;
-    [SerializeField] TextMeshProUGUI playerName;
+    public List<int> myGames;
     public TextMeshProUGUI savedName;
     [SerializeField] GameObject inputField;
     [SerializeField] GameObject showName;
+    [SerializeField] TextMeshProUGUI playerName;
 
     private void Start()
     {

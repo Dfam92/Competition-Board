@@ -10,11 +10,6 @@ public class GenerateBox : MonoBehaviour
     
 
     // Start is called before the first frame update
-    private void OnEnable()
-    {
-       
-        
-    }
     private void Start()
     {
 

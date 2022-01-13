@@ -18,8 +18,7 @@ public class Battle : MonoBehaviour
     public int ballInputValue1;
     public int ballInputValue2;
     public bool p2IsDifferent;
-
-    int[,] possibleGames;
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +26,7 @@ public class Battle : MonoBehaviour
         
         p1Image.texture = gameManager.players[0].playerImage;
         p2Image.texture = gameManager.players[1].playerImage;
-        p1Name.text = gameManager.players[0].savedName.text;
-        p2Name.text = gameManager.players[1].savedName.text;
+        
 
     }
     // Update is called once per frame
@@ -44,27 +42,40 @@ public class Battle : MonoBehaviour
 
     public void StartBatlle()
     {
-       
 
         while (!p2IsDifferent)
         {
-            var firstNumber = Random.Range(0, gameManager.players.Count);
-            var secondNumber = Random.Range(0, gameManager.players.Count);
+            int firstNumber = Random.Range(0, gameManager.players.Count);
+            int secondNumber = Random.Range(0, gameManager.players.Count);
             Player p1 = gameManager.players[firstNumber];
             Player p2 = gameManager.players[secondNumber];
-            
-            if (firstNumber != secondNumber)
+           
+            if (firstNumber != secondNumber && !p1.myGames.Contains(secondNumber) && !p2.myGames.Contains(firstNumber))
             {
-                possibleGames = new int[firstNumber, secondNumber];
+                p1.myGames.Add(secondNumber);
+                p2.myGames.Add(firstNumber);
+                p1.playedGames.text = p1.myGames.Count.ToString();
+                p2.playedGames.text = p2.myGames.Count.ToString();
+                p1Name.text = p1.savedName.text;
+                p2Name.text = p2.savedName.text;
                 Debug.Log(firstNumber + "= p1");
-                Debug.Log(secondNumber+ "= p2");
-                Debug.Log(possibleGames);
-                print(possibleGames);
+                Debug.Log(secondNumber + "= p2");
+                Debug.Log(p1.myGames.Count);
+                Debug.Log(p2.myGames.Count);
                 p2IsDifferent = true;
+               
             }
-        }
+            else
+            {
+                Debug.Log("The Game is Over!");
+                break;
+            }
+        } 
+    }
 
-        
+    private void CountGames()
+    {
+
     }
 
 }
