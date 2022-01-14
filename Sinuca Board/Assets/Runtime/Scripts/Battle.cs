@@ -13,21 +13,21 @@ public class Battle : MonoBehaviour
     [SerializeField] RawImage p2Image;
     [SerializeField] TextMeshProUGUI p1Name;
     [SerializeField] TextMeshProUGUI p2Name;
+    public List<Player> playerCompletedGames;
     public Text ballInputP1;
     public Text ballInputP2;
     public int ballInputValue1;
     public int ballInputValue2;
     public bool p2IsDifferent;
+
  
 
     // Start is called before the first frame update
     void Start()
     {
-        
         p1Image.texture = gameManager.players[0].playerImage;
         p2Image.texture = gameManager.players[1].playerImage;
         
-
     }
     // Update is called once per frame
     void Update()
@@ -42,14 +42,24 @@ public class Battle : MonoBehaviour
 
     public void StartBatlle()
     {
-
+        int maxOfGames = gameManager.numberOfPlayers - 1;
         while (!p2IsDifferent)
         {
-            int firstNumber = Random.Range(0, gameManager.players.Count);
-            int secondNumber = Random.Range(0, gameManager.players.Count);
+            int firstNumber = Random.Range(0, gameManager.numberOfPlayers);
+            int secondNumber = Random.Range(0, gameManager.numberOfPlayers);
             Player p1 = gameManager.players[firstNumber];
             Player p2 = gameManager.players[secondNumber];
-           
+            Debug.Log("p1 =" + firstNumber);
+            Debug.Log("p2 =" + secondNumber);
+            if (p1.isCompleted && !playerCompletedGames.Contains(p1))
+            {
+                playerCompletedGames.Add(p1);
+            }
+
+            if (p2.isCompleted && !playerCompletedGames.Contains(p2))
+            {
+                playerCompletedGames.Add(p2);
+            }
             if (firstNumber != secondNumber && !p1.myGames.Contains(secondNumber) && !p2.myGames.Contains(firstNumber))
             {
                 p1.myGames.Add(secondNumber);
@@ -58,17 +68,30 @@ public class Battle : MonoBehaviour
                 p2.playedGames.text = p2.myGames.Count.ToString();
                 p1Name.text = p1.savedName.text;
                 p2Name.text = p2.savedName.text;
-                Debug.Log(firstNumber + "= p1");
-                Debug.Log(secondNumber + "= p2");
+                
                 Debug.Log(p1.myGames.Count);
                 Debug.Log(p2.myGames.Count);
                 p2IsDifferent = true;
                
             }
+            else if(p1.myGames.Count == maxOfGames && p2.myGames.Count == maxOfGames)
+            {
+               if(playerCompletedGames.Count == maxOfGames)
+               {
+                    Debug.Log("GameOver");
+                    break;
+               }
+               else
+               {
+                    p2IsDifferent = true;
+                    continue;
+               }
+            }
             else
             {
-                Debug.Log("The Game is Over!");
-                break;
+                //p2IsDifferent = true;
+                Debug.Log("Sortear o proximo");
+                return;
             }
         } 
     }

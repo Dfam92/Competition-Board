@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     public TextMeshProUGUI victories;
     public TextMeshProUGUI playedGames;
     public TextMeshProUGUI ballInRole;
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject inputField;
     [SerializeField] GameObject showName;
     [SerializeField] TextMeshProUGUI playerName;
+    public bool isCompleted;
 
     private void Start()
     {
@@ -22,7 +24,14 @@ public class Player : MonoBehaviour
         playedGames.text = "-";
         ballInRole.text = "-";
     }
-
+    private void Update()
+    {
+        if(myGames.Count == gameManager.numberOfPlayers-1)
+        {
+            isCompleted = true;
+        }
+        
+    }
     public void SetName()
     {
         savedName.text = playerName.text;

@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 705507994}
+  m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8bf65dc78b5b4d64f83dcdd84aee773c, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -408,7 +408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &58315348
 RectTransform:
   m_ObjectHideFlags: 0
@@ -445,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 1746234848}
   playedGames: {fileID: 2083503700}
   ballInRole: {fileID: 1407703618}
@@ -454,6 +455,7 @@ MonoBehaviour:
   inputField: {fileID: 1470373348}
   showName: {fileID: 1775103629}
   playerName: {fileID: 1113818682}
+  isCompleted: 0
 --- !u!114 &58315350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1617,7 +1619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &156849118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1654,6 +1656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 1024706847}
   playedGames: {fileID: 257051893}
   ballInRole: {fileID: 379000164}
@@ -1663,6 +1666,7 @@ MonoBehaviour:
   inputField: {fileID: 1165328624}
   showName: {fileID: 1917006505}
   playerName: {fileID: 736738}
+  isCompleted: 0
 --- !u!114 &156849120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1692,7 +1696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &159824898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1729,6 +1733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 1748324747}
   playedGames: {fileID: 986288258}
   ballInRole: {fileID: 1887917311}
@@ -1738,6 +1743,7 @@ MonoBehaviour:
   inputField: {fileID: 418421930}
   showName: {fileID: 1269827216}
   playerName: {fileID: 1206747438}
+  isCompleted: 0
 --- !u!114 &159824900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2863,24 +2869,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2029463266}
   objectPos:
-  - {fileID: 468391239}
-  - {fileID: 337813796}
-  - {fileID: 1447682489}
-  - {fileID: 669920947}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 468391237}
+  - {fileID: 337813794}
+  - {fileID: 1447682487}
+  - {fileID: 669920945}
+  - {fileID: 1374614945}
+  - {fileID: 738681900}
+  - {fileID: 405845762}
+  - {fileID: 159824897}
+  - {fileID: 1855683601}
+  - {fileID: 2095242666}
+  - {fileID: 1500977898}
+  - {fileID: 156849117}
+  - {fileID: 1604862835}
+  - {fileID: 930391703}
+  - {fileID: 527273749}
+  - {fileID: 982305972}
+  - {fileID: 58315347}
+  - {fileID: 1554529048}
 --- !u!1 &277245259
 GameObject:
   m_ObjectHideFlags: 0
@@ -3589,7 +3595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &337813795
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3638,6 +3644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 523620073}
   playedGames: {fileID: 798708047}
   ballInRole: {fileID: 1842665638}
@@ -3647,6 +3654,7 @@ MonoBehaviour:
   inputField: {fileID: 1640254620}
   showName: {fileID: 121404020}
   playerName: {fileID: 1448508019}
+  isCompleted: 0
 --- !u!1 &347569642
 GameObject:
   m_ObjectHideFlags: 0
@@ -4840,7 +4848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &405845763
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4877,6 +4885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 1328692512}
   playedGames: {fileID: 1543550297}
   ballInRole: {fileID: 543448283}
@@ -4886,6 +4895,7 @@ MonoBehaviour:
   inputField: {fileID: 1245720065}
   showName: {fileID: 133408341}
   playerName: {fileID: 392197111}
+  isCompleted: 0
 --- !u!114 &405845765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6010,7 +6020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &468391238
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6059,6 +6069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 5396493247545003437}
   playedGames: {fileID: 5396493247603324213}
   ballInRole: {fileID: 5396493247841806610}
@@ -6068,6 +6079,7 @@ MonoBehaviour:
   inputField: {fileID: 441228294}
   showName: {fileID: 558600221}
   playerName: {fileID: 1382639880}
+  isCompleted: 0
 --- !u!1 &491122499
 GameObject:
   m_ObjectHideFlags: 0
@@ -6612,7 +6624,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &523620071
 GameObject:
@@ -6765,7 +6777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &527273750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6802,6 +6814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 1443133770}
   playedGames: {fileID: 2001211329}
   ballInRole: {fileID: 494029684}
@@ -6811,6 +6824,7 @@ MonoBehaviour:
   inputField: {fileID: 1454819776}
   showName: {fileID: 1079931610}
   playerName: {fileID: 1219778109}
+  isCompleted: 0
 --- !u!114 &527273752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8110,7 +8124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &669920946
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8159,6 +8173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 1058793536}
   playedGames: {fileID: 578727676}
   ballInRole: {fileID: 1432078584}
@@ -8168,6 +8183,7 @@ MonoBehaviour:
   inputField: {fileID: 434023882}
   showName: {fileID: 1802848119}
   playerName: {fileID: 582078}
+  isCompleted: 0
 --- !u!1 &694566738
 GameObject:
   m_ObjectHideFlags: 0
@@ -8381,99 +8397,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697082880}
   m_CullTransparentMesh: 1
---- !u!1 &705507993
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 705507995}
-  - component: {fileID: 705507994}
-  m_Layer: 0
-  m_Name: Directional Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &705507994
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705507993}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 1
-  m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 1
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &705507995
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &709840339
 GameObject:
   m_ObjectHideFlags: 0
@@ -8811,7 +8734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &738681901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8848,6 +8771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 1677124535}
   playedGames: {fileID: 2001683470}
   ballInRole: {fileID: 1537777642}
@@ -8857,6 +8781,7 @@ MonoBehaviour:
   inputField: {fileID: 347569642}
   showName: {fileID: 857296014}
   playerName: {fileID: 450798859}
+  isCompleted: 0
 --- !u!114 &738681903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8933,7 +8858,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &753049744
 GameObject:
@@ -10652,7 +10577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &930391704
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10689,6 +10614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 454431076}
   playedGames: {fileID: 243754951}
   ballInRole: {fileID: 1226358127}
@@ -10698,6 +10624,7 @@ MonoBehaviour:
   inputField: {fileID: 1848919663}
   showName: {fileID: 2001682577}
   playerName: {fileID: 664705172}
+  isCompleted: 0
 --- !u!114 &930391706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11031,7 +10958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &982305973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11068,6 +10995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 775752473}
   playedGames: {fileID: 762150593}
   ballInRole: {fileID: 1558788129}
@@ -11077,6 +11005,7 @@ MonoBehaviour:
   inputField: {fileID: 865547655}
   showName: {fileID: 174457657}
   playerName: {fileID: 694566740}
+  isCompleted: 0
 --- !u!114 &982305975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15766,7 +15695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1374614946
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15803,6 +15732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 1683702620}
   playedGames: {fileID: 1406468739}
   ballInRole: {fileID: 1622012302}
@@ -15812,6 +15742,7 @@ MonoBehaviour:
   inputField: {fileID: 1610441020}
   showName: {fileID: 1177174421}
   playerName: {fileID: 2000499311}
+  isCompleted: 0
 --- !u!114 &1374614948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16934,7 +16865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1447682488
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16983,6 +16914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 1610109655}
   playedGames: {fileID: 1835951265}
   ballInRole: {fileID: 1867660771}
@@ -16992,6 +16924,7 @@ MonoBehaviour:
   inputField: {fileID: 1298792870}
   showName: {fileID: 1031824953}
   playerName: {fileID: 736508976}
+  isCompleted: 0
 --- !u!1 &1448508017
 GameObject:
   m_ObjectHideFlags: 0
@@ -17803,7 +17736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1500977899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17840,6 +17773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 305796202}
   playedGames: {fileID: 1170634938}
   ballInRole: {fileID: 1802041244}
@@ -17849,6 +17783,7 @@ MonoBehaviour:
   inputField: {fileID: 1816098832}
   showName: {fileID: 1382468028}
   playerName: {fileID: 907995660}
+  isCompleted: 0
 --- !u!114 &1500977901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18146,7 +18081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1554529049
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18183,6 +18118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 1742089917}
   playedGames: {fileID: 335428721}
   ballInRole: {fileID: 1351761686}
@@ -18192,6 +18128,7 @@ MonoBehaviour:
   inputField: {fileID: 2064139544}
   showName: {fileID: 1919178978}
   playerName: {fileID: 333325880}
+  isCompleted: 0
 --- !u!114 &1554529051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18665,7 +18602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1604862836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18702,6 +18639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 146886497}
   playedGames: {fileID: 2109208114}
   ballInRole: {fileID: 709840341}
@@ -18711,6 +18649,7 @@ MonoBehaviour:
   inputField: {fileID: 267088231}
   showName: {fileID: 1072226665}
   playerName: {fileID: 1120495866}
+  isCompleted: 0
 --- !u!114 &1604862838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22053,6 +21992,7 @@ MonoBehaviour:
   p2Image: {fileID: 1937746992}
   p1Name: {fileID: 1411990424}
   p2Name: {fileID: 1746444764}
+  playerCompletedGames: []
   ballInputP1: {fileID: 1465454636}
   ballInputP2: {fileID: 1069159201}
   ballInputValue1: 0
@@ -22517,7 +22457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1855683602
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22554,6 +22494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 1110925174}
   playedGames: {fileID: 896837060}
   ballInRole: {fileID: 497337764}
@@ -22563,6 +22504,7 @@ MonoBehaviour:
   inputField: {fileID: 371689674}
   showName: {fileID: 767831630}
   playerName: {fileID: 1325938183}
+  isCompleted: 0
 --- !u!114 &1855683604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23357,7 +23299,7 @@ RectTransform:
   - {fileID: 954407872}
   - {fileID: 1647755695}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -23981,7 +23923,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2029463266
 MonoBehaviour:
@@ -24020,6 +23962,7 @@ MonoBehaviour:
   - {fileID: 982305974}
   - {fileID: 58315349}
   - {fileID: 1554529050}
+  playerCompletedGames: 
   numberOfPlayers: 0
 --- !u!1 &2064139544
 GameObject:
@@ -24514,7 +24457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2095242667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24551,6 +24494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ed9cd6a8ee2d648a435ddc7954d02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 2029463266}
   victories: {fileID: 305203583}
   playedGames: {fileID: 151929156}
   ballInRole: {fileID: 369473506}
@@ -24560,6 +24504,7 @@ MonoBehaviour:
   inputField: {fileID: 455239949}
   showName: {fileID: 1825221969}
   playerName: {fileID: 839953406}
+  isCompleted: 0
 --- !u!114 &2095242669
 MonoBehaviour:
   m_ObjectHideFlags: 0

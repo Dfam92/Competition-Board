@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text inputOfPlayersText;
     [SerializeField] Battle battle;
     public List<Player> players;
-
     private Player playerWhoWin;
 
     public int numberOfPlayers;
