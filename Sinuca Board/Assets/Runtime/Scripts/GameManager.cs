@@ -2,34 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
    
     [SerializeField] GameObject numberOfPlayerMenu;
     [SerializeField] GameObject mainMenu;
-    [SerializeField] GameObject boxGenerator;
-    [SerializeField] GameObject battleMenu;
+    public GameObject boxGenerator;
+    public GameObject battleMenu;
+    public GameObject classificationMenu;
     [SerializeField] Text inputOfPlayersText;
     [SerializeField] Battle battle;
     public List<Player> players;
-    private Player playerWhoWin;
-
+    public List<Player> playerCompletedGames;
     public int numberOfPlayers;
-    private int gamesPlayed;
-    private int victories;
-    private int ballInRole;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
+    public Toggle p1WinToggle;
+    public Toggle p2WinToggle;
 
     public void StartGame()
     {
@@ -55,12 +44,20 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore()
     {
-        battleMenu.SetActive(false);
-        boxGenerator.SetActive(true);
-        //IncreasePlayedGames(playerWhoWin, 1);
-        //IncreaseVictories(playerWhoWin,1);
-        BallInRole(players[0],battle.ballInputValue1);
-        Debug.Log(battle.ballInputP1.text);
+        if(playerCompletedGames.Count < numberOfPlayers)
+        {
+            battleMenu.SetActive(false);
+            boxGenerator.SetActive(true);
+            BallInRole(battle.player1, battle.ballInputValue1, battle.player2, battle.ballInputValue2);
+            IncreaseVictories(battle.player1, battle.player2, battle.victoryValue);
+        }
+        else
+        {
+            battleMenu.SetActive(false);
+            classificationMenu.SetActive(true);
+        }
+       
+        
     }
 
     public void PlayNextGame()
@@ -70,29 +67,41 @@ public class GameManager : MonoBehaviour
         battle.p2IsDifferent = false;
     }
 
-    private void IncreasePlayedGames(Player player, int value)
+    private void BallInRole(Player p1, int value1, Player p2, int value2)
     {
-        gamesPlayed += value;
-        player.playedGames.text =" " + gamesPlayed;
+        if(playerCompletedGames.Count < numberOfPlayers)
+        {
+            p1.balls += value1;
+            p1.ballInRole.text = " " + p1.balls;
+            p2.balls += value2;
+            p2.ballInRole.text = " " + p2.balls;
+        }
     }
 
-    private void IncreaseVictories(Player player,int value)
+    private void IncreaseVictories(Player p1,Player p2, int value)
     {
-        victories += value;
-        player.victories.text = " " + victories;
+        if(playerCompletedGames.Count < numberOfPlayers)
+        {
+            if (p1WinToggle.isOn == true)
+            {
+                p1.wins += value;
+                p1.victories.text = " " + p1.wins;
+            }
+            else if(p2WinToggle.isOn == true)
+            {
+                p2.wins += value;
+                p2.victories.text = " " + p2.wins;
+            }
+        }
     }
 
-    private void BallInRole(Player player,int value)
+    public void QuitGame()
     {
-        ballInRole += value;
-        player.ballInRole.text = " " + ballInRole;
-       
+        Application.Quit();
     }
 
-    
-
-    public void ResetData()
+    public void Restart()
     {
-        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

@@ -6,7 +6,7 @@ using TMPro;
 public class GenerateBox : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
-    [SerializeField] List<GameObject> objectPos;
+    public List<GameObject> playerPos;
     
 
     // Start is called before the first frame update
@@ -14,9 +14,16 @@ public class GenerateBox : MonoBehaviour
     {
         for (int i = 0; i < gameManager.numberOfPlayers; i++)
         {
-            objectPos[i].SetActive(true);
+            playerPos[i].SetActive(true);
         }
     }
 
-
+   
+    public void DisableAll()
+    {
+        for (int i = 0; i < gameManager.numberOfPlayers; i++)
+        {
+            playerPos[i].SetActive(false);
+        }
+    }
 }

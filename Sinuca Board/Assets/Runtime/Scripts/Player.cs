@@ -16,7 +16,10 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject inputField;
     [SerializeField] GameObject showName;
     [SerializeField] TextMeshProUGUI playerName;
+    public GameObject gameObjectPosition;
     public bool isCompleted;
+    public int balls;
+    public int wins;
 
     private void Start()
     {
@@ -26,8 +29,9 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        if(myGames.Count == gameManager.numberOfPlayers-1)
+        if(myGames.Count == gameManager.numberOfPlayers-1 && !isCompleted)
         {
+            gameManager.playerCompletedGames.Add(this);
             isCompleted = true;
         }
         
