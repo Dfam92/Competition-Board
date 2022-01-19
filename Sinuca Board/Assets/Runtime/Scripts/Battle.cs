@@ -62,8 +62,8 @@ public class Battle : MonoBehaviour
             Player p1 = gameManager.players[firstNumber];
             Player p2 = gameManager.players[secondNumber];
 
-            //todo linkar maior valor com o player, provavelmente usar dicionarios.
-            if (gameManager.playerCompletedGames.Count == gameManager.numberOfPlayers)
+            
+            if (gameManager.playerCompletedGames.Count == gameManager.numberOfPlayers )
             {
                 generateBox.SetActive(false);
                 classification.SetActive(true);

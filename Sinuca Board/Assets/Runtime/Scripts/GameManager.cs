@@ -31,8 +31,6 @@ public class GameManager : MonoBehaviour
         int.TryParse(inputOfPlayersText.text, out numberOfPlayers);
         numberOfPlayerMenu.SetActive(false);  
         
-        Debug.Log(numberOfPlayers);
-        Debug.Log(inputOfPlayersText.text);
         StartCoroutine(MainTitleSpawn()); 
     }
 
@@ -57,7 +55,6 @@ public class GameManager : MonoBehaviour
             classificationMenu.SetActive(true);
         }
        
-        
     }
 
     public void PlayNextGame()
@@ -65,6 +62,7 @@ public class GameManager : MonoBehaviour
         battleMenu.SetActive(true);
         boxGenerator.SetActive(false);
         battle.p2IsDifferent = false;
+       
     }
 
     private void BallInRole(Player p1, int value1, Player p2, int value2)

@@ -21,6 +21,7 @@ public class GenerateBox : MonoBehaviour
    
     public void DisableAll()
     {
+        
         for (int i = 0; i < gameManager.numberOfPlayers; i++)
         {
             playerPos[i].SetActive(false);

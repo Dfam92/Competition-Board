@@ -20,10 +20,11 @@ public class Classification : MonoBehaviour
 
     private int numberOfClassified;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         if (gameManager.playerCompletedGames.Count == gameManager.numberOfPlayers)
         {
+            Debug.Log("OK");
             for (int i = 0; i < gameManager.numberOfPlayers; i++)
             {
                 classificationByBalls.Add(gameManager.players[i], gameManager.players[i].balls);
@@ -32,20 +33,15 @@ public class Classification : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void StartClassification()
     {
         //Ordena o dicionario conforme o Key ou Value(atenção ao final da sentença.);
         foreach (KeyValuePair<Player, int> item in classificationByBalls.OrderByDescending(ballsValue => ballsValue.Value))
         {
             classifiedPlayers.Add(item.Key);
-            Debug.Log($"{item.Key} + {item.Value}");
+           
         }
+        
         leaderBoard.Clear();
         for (int i = 0; i < gameManager.numberOfPlayers; i++)
         {
@@ -55,12 +51,13 @@ public class Classification : MonoBehaviour
         foreach (KeyValuePair<Player, int> item in leaderBoard.OrderByDescending(winValue => winValue.Value))
         {
             classifiedPlayers.Add(item.Key);
-            Debug.Log($"{item.Key} + {item.Value}");
+           
+            
         }
         for (int i = 0; i < gameManager.numberOfPlayers; i++)
         {
+            leaderBoardText.Add(classifiedPlayers[i].savedName);
             leaderBoardText[i].text = classifiedPlayers[i].savedName.text;
-
         }
 
         classificationButton.SetActive(false);
@@ -89,6 +86,17 @@ public class Classification : MonoBehaviour
     IEnumerator StartNewFase()
     {
         yield return new WaitForSeconds(5);
+        ResetPlayerInformation();
+        numberOfClassified = 0;
+        gameManager.numberOfPlayers = classifiedPlayers.Count;
+        ResetButtons();
+        ResetLists();
+       
+    }
+
+    private void ResetPlayerInformation()
+    {
+        gameManager.players.Clear();
         for (int i = 0; i < numberOfClassified; i++)
         {
             classifiedPlayers[i].balls = 0;
@@ -98,11 +106,25 @@ public class Classification : MonoBehaviour
             classifiedPlayers[i].playedGames.text = "-";
             classifiedPlayers[i].ballInRole.text = "-";
             classifiedPlayers[i].isCompleted = false;
-
+            gameManager.players.Add(classifiedPlayers[i]);
         }
+    }
+
+    private void ResetLists()
+    {
         gameManager.playerCompletedGames.Clear();
+        leaderBoard.Clear();
+        classificationByBalls.Clear();
+        leaderBoardText.Clear();
+        classifiedPlayers.Clear();
+    }
+
+    private void ResetButtons()
+    {
         gameManager.boxGenerator.SetActive(true);
         gameManager.battleMenu.SetActive(false);
         gameManager.classificationMenu.SetActive(false);
+        classificationButton.SetActive(true);
+        listOfPlayers.SetActive(false);
     }
 }
