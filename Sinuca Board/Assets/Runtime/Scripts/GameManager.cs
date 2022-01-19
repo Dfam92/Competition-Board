@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     public GameObject boxGenerator;
     public GameObject battleMenu;
+    public GameObject battleFinalMenu;
     public GameObject classificationMenu;
     [SerializeField] Text inputOfPlayersText;
     [SerializeField] Battle battle;
