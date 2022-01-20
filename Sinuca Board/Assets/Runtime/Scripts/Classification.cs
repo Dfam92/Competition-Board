@@ -7,19 +7,19 @@ using UnityEngine.UI;
 
 public class Classification : MonoBehaviour
 {
-
     [SerializeField] GameManager gameManager;
     [SerializeField] Text inputTextClassified;
     [SerializeField] GameObject classificationButton;
     [SerializeField] GameObject listOfPlayers;
-
     [SerializeField] List<TextMeshProUGUI> leaderBoardText;
     [SerializeField] List<TextMeshProUGUI> classificationBoard;
+
     public List<Player> classifiedPlayers;
     public Dictionary<Player, int> leaderBoard = new Dictionary<Player, int>();
     public Dictionary<Player, int> classificationByBalls = new Dictionary<Player, int>();
 
     private int numberOfClassified;
+    
     // Start is called before the first frame update
     private void Start()
     {
@@ -32,14 +32,12 @@ public class Classification : MonoBehaviour
     {
         if (gameManager.playerCompletedGames.Count == gameManager.numberOfPlayers)
         {
-            Debug.Log("OK");
+            
             for (int i = 0; i < gameManager.numberOfPlayers; i++)
             {
                 classificationByBalls.Add(gameManager.players[i], gameManager.players[i].balls);
-
             }
         }
-       
     }
 
     public void StartClassification()
@@ -49,30 +47,39 @@ public class Classification : MonoBehaviour
         {
             classifiedPlayers.Add(item.Key);
         }
+
         leaderBoard.Clear();
+
         for (int i = 0; i < gameManager.numberOfPlayers; i++)
         {
             leaderBoard.Add(classifiedPlayers[i], classifiedPlayers[i].wins);
         }
+
         classifiedPlayers.Clear();
+
         foreach (KeyValuePair<Player, int> item in leaderBoard.OrderByDescending(winValue => winValue.Value))
         {
             classifiedPlayers.Add(item.Key);
         }
-        Debug.Log(gameManager.numberOfPlayers);
+        
         for (int i = 0; i < classifiedPlayers.Count; i++)
         {
             leaderBoardText.Add(classifiedPlayers[i].savedName);
             classificationBoard[i].text = leaderBoardText[i].text;
         }
        
-
         classificationButton.SetActive(false);
         listOfPlayers.SetActive(true);
     }
     public void SetPlayers()
     {
         int.TryParse(inputTextClassified.text, out numberOfClassified);
+
+        for (int i = numberOfClassified ; i < classifiedPlayers.Count; i++)
+        {
+            classificationBoard[i].color = Color.red;
+        }
+
         classifiedPlayers.RemoveRange(numberOfClassified, classifiedPlayers.Count - numberOfClassified);
 
         for (int i = 0; i < numberOfClassified; i++)
@@ -80,17 +87,16 @@ public class Classification : MonoBehaviour
             
             classifiedPlayers[i].gameObjectPosition.SetActive(true);
         }
-       
+
         if(classifiedPlayers.Count > 2)
         {
             StartCoroutine(StartNewPhase());
         }
         else
         {
+            gameManager.finalIsReady = true;
             StartCoroutine(StartFinalPhase());
         }
-        
-
     }
 
     IEnumerator StartNewPhase()

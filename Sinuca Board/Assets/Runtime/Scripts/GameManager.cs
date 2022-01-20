@@ -6,20 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-   
+    [SerializeField] Text inputOfPlayersText;
+    [SerializeField] Battle battle;
     [SerializeField] GameObject numberOfPlayerMenu;
     [SerializeField] GameObject mainMenu;
+
     public GameObject boxGenerator;
     public GameObject battleMenu;
     public GameObject battleFinalMenu;
     public GameObject classificationMenu;
-    [SerializeField] Text inputOfPlayersText;
-    [SerializeField] Battle battle;
     public List<Player> players;
     public List<Player> playerCompletedGames;
     public int numberOfPlayers;
     public Toggle p1WinToggle;
     public Toggle p2WinToggle;
+
+    public bool finalIsReady;
 
     public void StartGame()
     {
@@ -63,7 +65,6 @@ public class GameManager : MonoBehaviour
         battleMenu.SetActive(true);
         boxGenerator.SetActive(false);
         battle.p2IsDifferent = false;
-       
     }
 
     private void BallInRole(Player p1, int value1, Player p2, int value2)

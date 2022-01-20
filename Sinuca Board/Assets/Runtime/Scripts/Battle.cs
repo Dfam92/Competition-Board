@@ -26,19 +26,6 @@ public class Battle : MonoBehaviour
     public int victoryValue;
 
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        p1Image.texture = gameManager.players[0].playerImage;
-        p2Image.texture = gameManager.players[1].playerImage;
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnEnable()
     {
         gameManager.p1WinToggle.isOn = false;
@@ -47,10 +34,12 @@ public class Battle : MonoBehaviour
     }
     private void OnDisable()
     {
-        int.TryParse(ballInputP1.text, out ballInputValue1);
-        int.TryParse(ballInputP2.text, out ballInputValue2);
-        victoryValue = 1;
-        
+        if(!gameManager.finalIsReady)
+        {
+            int.TryParse(ballInputP1.text, out ballInputValue1);
+            int.TryParse(ballInputP2.text, out ballInputValue2);
+            victoryValue = 1;
+        }
     }
     
     public void StartBatlle()
@@ -76,6 +65,8 @@ public class Battle : MonoBehaviour
                 p2.myGames.Add(firstNumber);
                 p1.playedGames.text = p1.myGames.Count.ToString();
                 p2.playedGames.text = p2.myGames.Count.ToString();
+                p1Image.texture = p1.playerImage;
+                p2Image.texture = p2.playerImage;
                 p1Name.text = p1.savedName.text;
                 p2Name.text = p2.savedName.text;
                 player1 = p1;

@@ -7,7 +7,6 @@ public class GenerateBox : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     public List<GameObject> playerPos;
-    
 
     // Start is called before the first frame update
     private void Start()
@@ -17,11 +16,8 @@ public class GenerateBox : MonoBehaviour
             playerPos[i].SetActive(true);
         }
     }
-
-   
     public void DisableAll()
     {
-        
         for (int i = 0; i < gameManager.numberOfPlayers; i++)
         {
             playerPos[i].SetActive(false);
