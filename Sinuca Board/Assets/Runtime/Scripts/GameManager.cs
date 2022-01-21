@@ -10,11 +10,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] Battle battle;
     [SerializeField] GameObject numberOfPlayerMenu;
     [SerializeField] GameObject mainMenu;
-
+    [SerializeField] GameObject incorrectValueSetPlayers;
+    [SerializeField] GameObject incorrectValueSetWins;
+   
+    public GameObject incorrectValueSetClassifiedPlayers;
     public GameObject boxGenerator;
     public GameObject battleMenu;
     public GameObject battleFinalMenu;
     public GameObject classificationMenu;
+    
     public List<Player> players;
     public List<Player> playerCompletedGames;
     public int numberOfPlayers;
@@ -31,10 +35,19 @@ public class GameManager : MonoBehaviour
 
     public void SetPlayers()
     {
+       
         int.TryParse(inputOfPlayersText.text, out numberOfPlayers);
-        numberOfPlayerMenu.SetActive(false);  
-        
-        StartCoroutine(MainTitleSpawn()); 
+        if(numberOfPlayers > 18 || numberOfPlayers < 3)
+        {
+            incorrectValueSetPlayers.SetActive(true);
+        }
+        else
+        {
+            incorrectValueSetPlayers.SetActive(false);
+            numberOfPlayerMenu.SetActive(false);
+            StartCoroutine(MainTitleSpawn());
+        }
+       
     }
 
     IEnumerator MainTitleSpawn()
@@ -45,19 +58,26 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore()
     {
-        if(playerCompletedGames.Count < numberOfPlayers)
+        if(p1WinToggle.isOn == true || p2WinToggle.isOn == true)
         {
-            battleMenu.SetActive(false);
-            boxGenerator.SetActive(true);
-            BallInRole(battle.player1, battle.ballInputValue1, battle.player2, battle.ballInputValue2);
-            IncreaseVictories(battle.player1, battle.player2, battle.victoryValue);
+            if (playerCompletedGames.Count < numberOfPlayers)
+            {
+                battleMenu.SetActive(false);
+                boxGenerator.SetActive(true);
+                BallInRole(battle.player1, battle.ballInputValue1, battle.player2, battle.ballInputValue2);
+                IncreaseVictories(battle.player1, battle.player2, battle.victoryValue);
+            }
+            else
+            {
+                battleMenu.SetActive(false);
+                classificationMenu.SetActive(true);
+            }
+            incorrectValueSetWins.SetActive(false);
         }
         else
         {
-            battleMenu.SetActive(false);
-            classificationMenu.SetActive(true);
+            incorrectValueSetWins.SetActive(true);
         }
-       
     }
 
     public void PlayNextGame()
@@ -90,8 +110,9 @@ public class GameManager : MonoBehaviour
             else if(p2WinToggle.isOn == true)
             {
                 p2.wins += value;
-                p2.victories.text = " " + p2.wins;
+                p2.victories.text = " " + p2.wins; 
             }
+           
         }
     }
 

@@ -74,29 +74,38 @@ public class Classification : MonoBehaviour
     public void SetPlayers()
     {
         int.TryParse(inputTextClassified.text, out numberOfClassified);
-
-        for (int i = numberOfClassified ; i < classifiedPlayers.Count; i++)
+        if(numberOfClassified >= classifiedPlayers.Count || numberOfClassified <= 1)
         {
-            classificationBoard[i].color = Color.red;
-        }
-
-        classifiedPlayers.RemoveRange(numberOfClassified, classifiedPlayers.Count - numberOfClassified);
-
-        for (int i = 0; i < numberOfClassified; i++)
-        {
-            
-            classifiedPlayers[i].gameObjectPosition.SetActive(true);
-        }
-
-        if(classifiedPlayers.Count > 2)
-        {
-            StartCoroutine(StartNewPhase());
+            gameManager.incorrectValueSetClassifiedPlayers.SetActive(true);
         }
         else
         {
-            gameManager.finalIsReady = true;
-            StartCoroutine(StartFinalPhase());
+            for (int i = numberOfClassified; i < classifiedPlayers.Count; i++)
+            {
+                classificationBoard[i].color = Color.red;
+            }
+
+            classifiedPlayers.RemoveRange(numberOfClassified, classifiedPlayers.Count - numberOfClassified);
+
+            for (int i = 0; i < numberOfClassified; i++)
+            {
+
+                classifiedPlayers[i].gameObjectPosition.SetActive(true);
+            }
+
+            if (classifiedPlayers.Count > 2)
+            {
+                StartCoroutine(StartNewPhase());
+            }
+            else
+            {
+                gameManager.finalIsReady = true;
+                StartCoroutine(StartFinalPhase());
+            }
+            gameManager.incorrectValueSetClassifiedPlayers.SetActive(false);
         }
+
+       
     }
 
     IEnumerator StartNewPhase()

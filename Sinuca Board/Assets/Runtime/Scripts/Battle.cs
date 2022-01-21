@@ -30,7 +30,8 @@ public class Battle : MonoBehaviour
     {
         gameManager.p1WinToggle.isOn = false;
         gameManager.p2WinToggle.isOn = false;
-
+        ballInputP1.text = " ";
+        ballInputP2.text = " ";
     }
     private void OnDisable()
     {
