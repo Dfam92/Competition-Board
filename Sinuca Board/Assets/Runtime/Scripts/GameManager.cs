@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     public int numberOfPlayers;
     public Toggle p1WinToggle;
     public Toggle p2WinToggle;
+
 
     public bool finalIsReady;
 
@@ -85,6 +87,7 @@ public class GameManager : MonoBehaviour
         battleMenu.SetActive(true);
         boxGenerator.SetActive(false);
         battle.p2IsDifferent = false;
+        
     }
 
     private void BallInRole(Player p1, int value1, Player p2, int value2)
@@ -125,4 +128,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    private void MoveThings()
+    {
+        var nextPos = new Vector3(1, 1, 1);
+        p1WinToggle.transform.DOMove(nextPos, 10);
+    }
+    
 }
