@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject incorrectValueSetPlayers;
     [SerializeField] GameObject incorrectValueSetWins;
-   
+
     public GameObject incorrectValueSetClassifiedPlayers;
     public GameObject boxGenerator;
     public GameObject battleMenu;
@@ -66,7 +65,9 @@ public class GameManager : MonoBehaviour
             {
                 battleMenu.SetActive(false);
                 boxGenerator.SetActive(true);
-                BallInRole(battle.player1, battle.ballInputValue1, battle.player2, battle.ballInputValue2);
+                // BallInRole(battle.player1, battle.ballInputValue1, battle.player2, battle.ballInputValue2);
+                battle.player1.BallInRole(battle.ballInputValue1);
+                battle.player2.BallInRole(battle.ballInputValue2);
                 IncreaseVictories(battle.player1, battle.player2, battle.victoryValue);
             }
             else
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void BallInRole(Player p1, int value1, Player p2, int value2)
+    /*private void BallInRole(Player p1, int value1, Player p2, int value2)
     {
         if(playerCompletedGames.Count < numberOfPlayers)
         {
@@ -99,9 +100,9 @@ public class GameManager : MonoBehaviour
             p2.balls += value2;
             p2.ballInRole.text = " " + p2.balls;
         }
-    }
+    }*/
 
-    private void IncreaseVictories(Player p1,Player p2, int value)
+    private void IncreaseVictories(Player p1,Player p2, int value = 0)
     {
         if(playerCompletedGames.Count < numberOfPlayers)
         {
@@ -129,10 +130,4 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    private void MoveThings()
-    {
-        var nextPos = new Vector3(1, 1, 1);
-        p1WinToggle.transform.DOMove(nextPos, 10);
-    }
-    
 }

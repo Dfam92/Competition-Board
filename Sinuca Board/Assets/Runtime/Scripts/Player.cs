@@ -26,6 +26,13 @@ public class Player : MonoBehaviour
         victories.text = "-";
         playedGames.text = "-";
         ballInRole.text = "-";
+        savedName.text = "";
+    }
+
+    public void BallInRole(int value)
+    {
+        this.balls += value;
+        this.ballInRole.text = " " + this.balls;
     }
     private void Update()
     {
@@ -41,6 +48,6 @@ public class Player : MonoBehaviour
         savedName.text = playerName.text;
         showName.SetActive(true);
         inputField.SetActive(false);
-        
+       
     }
 }

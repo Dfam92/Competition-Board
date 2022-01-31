@@ -151,7 +151,6 @@ public class Classification : MonoBehaviour
         leaderBoardText.Clear();
         classifiedPlayers.Clear();
     }
-
     private void ResetButtons()
     {
         gameManager.boxGenerator.SetActive(true);
