@@ -23,4 +23,6 @@ public class GenerateBox : MonoBehaviour
             playerPos[i].SetActive(false);
         }
     }
+
+    
 }

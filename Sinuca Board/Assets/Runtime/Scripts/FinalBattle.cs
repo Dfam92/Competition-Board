@@ -34,7 +34,6 @@ public class FinalBattle : MonoBehaviour
                
     }
     
-
     public void ChampionDecision()
     {
         if (p1FinalWinToggle.isOn == true)
@@ -44,7 +43,6 @@ public class FinalBattle : MonoBehaviour
             HideObjects();
             p1.transform.DOLocalMoveX(67, 2);
             ShowLaurel();
-
         }
         
         if(p2FinalWinToggle.isOn == true)
@@ -54,7 +52,6 @@ public class FinalBattle : MonoBehaviour
             HideObjects();
             p2.transform.DOLocalMoveX(-35f, 2);
             ShowLaurel();
-
         }
     }
 

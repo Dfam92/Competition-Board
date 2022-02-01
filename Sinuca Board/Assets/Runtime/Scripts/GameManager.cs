@@ -12,6 +12,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject incorrectValueSetPlayers;
     [SerializeField] GameObject incorrectValueSetWins;
+    [SerializeField] GameObject p1Animation;
+    [SerializeField] GameObject p2Animation;
+    [SerializeField] Animator animator1;
+    [SerializeField] Animator animator2;
+    [SerializeField] GameObject p1Panel;
+    [SerializeField] GameObject p2Panel;
+    [SerializeField] GameObject continueButton;
 
     public GameObject incorrectValueSetClassifiedPlayers;
     public GameObject boxGenerator;
@@ -25,8 +32,19 @@ public class GameManager : MonoBehaviour
     public Toggle p1WinToggle;
     public Toggle p2WinToggle;
 
-
     public bool finalIsReady;
+
+    private void Update()
+    {
+        if(p1WinToggle.isOn == true)
+        {
+            p2WinToggle.isOn = false;
+        }
+        else if (p2WinToggle.isOn == true)
+        {
+            p1WinToggle.isOn = false;
+        }
+    }
 
     public void StartGame()
     {
@@ -61,20 +79,12 @@ public class GameManager : MonoBehaviour
     {
         if(p1WinToggle.isOn == true || p2WinToggle.isOn == true)
         {
-            if (playerCompletedGames.Count < numberOfPlayers)
-            {
-                battleMenu.SetActive(false);
-                boxGenerator.SetActive(true);
-                // BallInRole(battle.player1, battle.ballInputValue1, battle.player2, battle.ballInputValue2);
-                battle.player1.BallInRole(battle.ballInputValue1);
-                battle.player2.BallInRole(battle.ballInputValue2);
-                IncreaseVictories(battle.player1, battle.player2, battle.victoryValue);
-            }
-            else
-            {
-                battleMenu.SetActive(false);
-                classificationMenu.SetActive(true);
-            }
+            battleMenu.SetActive(false);
+            boxGenerator.SetActive(true);
+            battle.player1.BallInRole(battle.ballInputValue1);
+            battle.player2.BallInRole(battle.ballInputValue2);
+            IncreaseVictories(battle.player1, battle.player2, battle.victoryValue);
+            RearmAnimation();
             incorrectValueSetWins.SetActive(false);
         }
         else
@@ -85,22 +95,21 @@ public class GameManager : MonoBehaviour
 
     public void PlayNextGame()
     {
-        battleMenu.SetActive(true);
-        boxGenerator.SetActive(false);
-        battle.p2IsDifferent = false;
-        
-    }
-
-    /*private void BallInRole(Player p1, int value1, Player p2, int value2)
-    {
-        if(playerCompletedGames.Count < numberOfPlayers)
+        if (playerCompletedGames.Count < numberOfPlayers)
         {
-            p1.balls += value1;
-            p1.ballInRole.text = " " + p1.balls;
-            p2.balls += value2;
-            p2.ballInRole.text = " " + p2.balls;
+            battleMenu.SetActive(true);
+            boxGenerator.SetActive(false);
+            battle.p2IsDifferent = false;
+            StartAnimation();
+            StartCoroutine(SelectPlayers());
         }
-    }*/
+        else
+        {
+            battleMenu.SetActive(false);
+            classificationMenu.SetActive(true);
+        }
+       
+    }
 
     private void IncreaseVictories(Player p1,Player p2, int value = 0)
     {
@@ -130,4 +139,38 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+
+    private IEnumerator SelectPlayers()
+    {
+        yield return new WaitForSeconds(3);
+        p1Animation.SetActive(false);
+        p2Animation.SetActive(false);
+        p1Panel.SetActive(true);
+        p2Panel.SetActive(true);
+        battle.p1Image.gameObject.SetActive(true);
+        battle.p2Image.gameObject.SetActive(true);
+        continueButton.SetActive(true);
+        battle.StartBatlle();
+    }
+
+    public void StartAnimation()
+    {
+        animator1.SetBool("isSorting", true);
+        animator2.SetBool("isSorting2", true);
+    }
+
+    private void RearmAnimation()
+    {
+        animator1.SetBool("isSorting", false);
+        animator2.SetBool("isSorting2", false);
+        p1Panel.SetActive(false);
+        p2Panel.SetActive(false);
+        continueButton.SetActive(false);
+        p1Animation.SetActive(true);
+        p2Animation.SetActive(true);
+        battle.p1Image.gameObject.SetActive(false);
+        battle.p2Image.gameObject.SetActive(false);
+        p1Animation.GetComponent<SpriteRenderer>().sprite = null;
+        p2Animation.GetComponent<SpriteRenderer>().sprite = null;
+    }
 }

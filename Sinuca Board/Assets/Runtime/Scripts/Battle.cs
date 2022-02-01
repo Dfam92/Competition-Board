@@ -9,8 +9,8 @@ public class Battle : MonoBehaviour
     //[SerializeField] ImageSelection imageLoader;
     [SerializeField] GameObject generateBox;
     [SerializeField] GameManager gameManager;
-    [SerializeField] RawImage p1Image;
-    [SerializeField] RawImage p2Image;
+    public RawImage p1Image;
+    public RawImage p2Image;
     [SerializeField] TextMeshProUGUI p1Name;
     [SerializeField] TextMeshProUGUI p2Name;
     [SerializeField] GameObject classification;
