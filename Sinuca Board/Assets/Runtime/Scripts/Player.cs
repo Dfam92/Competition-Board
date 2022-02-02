@@ -7,16 +7,18 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
+    [SerializeField] GameObject inputField;
+    [SerializeField] GameObject showName;
+    [SerializeField] TextMeshProUGUI playerName;
+
+    public GameObject gameObjectPosition;
     public TextMeshProUGUI victories;
     public TextMeshProUGUI playedGames;
     public TextMeshProUGUI ballInRole;
     public Texture2D playerImage;
     public List<int> myGames;
     public TextMeshProUGUI savedName;
-    [SerializeField] GameObject inputField;
-    [SerializeField] GameObject showName;
-    [SerializeField] TextMeshProUGUI playerName;
-    public GameObject gameObjectPosition;
+    
     public bool isCompleted;
     public int balls;
     public int wins;

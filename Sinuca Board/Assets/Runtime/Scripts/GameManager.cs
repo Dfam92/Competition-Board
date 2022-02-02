@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,19 +20,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject p1Panel;
     [SerializeField] GameObject p2Panel;
     [SerializeField] GameObject continueButton;
+    [SerializeField] Sprite standardSprite;
+    [SerializeField] AudioManager audioManager;
+    [SerializeField] SfxManager sfxManager;
 
     public GameObject incorrectValueSetClassifiedPlayers;
     public GameObject boxGenerator;
     public GameObject battleMenu;
     public GameObject battleFinalMenu;
     public GameObject classificationMenu;
-    
     public List<Player> players;
     public List<Player> playerCompletedGames;
-    public int numberOfPlayers;
     public Toggle p1WinToggle;
     public Toggle p2WinToggle;
 
+    public int numberOfPlayers;
     public bool finalIsReady;
 
     private void Update()
@@ -48,8 +51,9 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        numberOfPlayerMenu.SetActive(true);
-        mainMenu.SetActive(false);
+        mainMenu.transform.DOLocalMoveY(-1093, 1);
+        numberOfPlayerMenu.transform.DOLocalMoveY(-8f, 1);
+        StartCoroutine(DesactiveMenu(mainMenu));
     }
 
     public void SetPlayers()
@@ -113,19 +117,15 @@ public class GameManager : MonoBehaviour
 
     private void IncreaseVictories(Player p1,Player p2, int value = 0)
     {
-        if(playerCompletedGames.Count < numberOfPlayers)
+        if (p1WinToggle.isOn == true)
         {
-            if (p1WinToggle.isOn == true)
-            {
-                p1.wins += value;
-                p1.victories.text = " " + p1.wins;
-            }
-            else if(p2WinToggle.isOn == true)
-            {
-                p2.wins += value;
-                p2.victories.text = " " + p2.wins; 
-            }
-           
+            p1.wins += value;
+            p1.victories.text = " " + p1.wins;
+        }
+        else if(p2WinToggle.isOn == true)
+        {
+            p2.wins += value;
+            p2.victories.text = " " + p2.wins; 
         }
     }
 
@@ -138,8 +138,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-
     private IEnumerator SelectPlayers()
     {
         yield return new WaitForSeconds(3);
@@ -152,13 +150,11 @@ public class GameManager : MonoBehaviour
         continueButton.SetActive(true);
         battle.StartBatlle();
     }
-
     public void StartAnimation()
     {
         animator1.SetBool("isSorting", true);
         animator2.SetBool("isSorting2", true);
     }
-
     private void RearmAnimation()
     {
         animator1.SetBool("isSorting", false);
@@ -170,7 +166,19 @@ public class GameManager : MonoBehaviour
         p2Animation.SetActive(true);
         battle.p1Image.gameObject.SetActive(false);
         battle.p2Image.gameObject.SetActive(false);
-        p1Animation.GetComponent<SpriteRenderer>().sprite = null;
-        p2Animation.GetComponent<SpriteRenderer>().sprite = null;
+        p1Animation.GetComponent<SpriteRenderer>().sprite = standardSprite;
+        p2Animation.GetComponent<SpriteRenderer>().sprite = standardSprite;
+    }
+
+    private IEnumerator DesactiveMenu(GameObject menu)
+    {
+        yield return new WaitForSeconds(3);
+        menu.SetActive(false);
+    }
+
+    private IEnumerator ActiveMenu(GameObject menu)
+    {
+        yield return new WaitForSeconds(3);
+        menu.SetActive(true);
     }
 }

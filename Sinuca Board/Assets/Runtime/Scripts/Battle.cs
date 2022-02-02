@@ -9,22 +9,21 @@ public class Battle : MonoBehaviour
     //[SerializeField] ImageSelection imageLoader;
     [SerializeField] GameObject generateBox;
     [SerializeField] GameManager gameManager;
-    public RawImage p1Image;
-    public RawImage p2Image;
     [SerializeField] TextMeshProUGUI p1Name;
     [SerializeField] TextMeshProUGUI p2Name;
     [SerializeField] GameObject classification;
-    
+
+    public RawImage p1Image;
+    public RawImage p2Image;
     public Player player1;
     public Player player2;
-
     public Text ballInputP1;
     public Text ballInputP2;
+
     public int ballInputValue1;
     public int ballInputValue2;
     public bool p2IsDifferent;
     public int victoryValue;
-
 
     private void OnEnable()
     {
