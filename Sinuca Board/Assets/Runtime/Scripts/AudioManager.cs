@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        audioManager.DOFade(1, 10);
+        audioManager.DOFade(0.8f, 10);
         PlayClip(mainTitleClip);
     }
 

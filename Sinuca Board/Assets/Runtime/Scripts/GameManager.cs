@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject p1Panel;
     [SerializeField] GameObject p2Panel;
     [SerializeField] GameObject continueButton;
+    [SerializeField] GameObject playButton;
+    [SerializeField] GameObject creatingBoard;
     [SerializeField] Sprite standardSprite;
-    [SerializeField] AudioManager audioManager;
-    [SerializeField] SfxManager sfxManager;
 
     public GameObject incorrectValueSetClassifiedPlayers;
     public GameObject boxGenerator;
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     {
         mainMenu.transform.DOLocalMoveY(-1093, 1);
         numberOfPlayerMenu.transform.DOLocalMoveY(-8f, 1);
-        StartCoroutine(DesactiveMenu(mainMenu));
+        StartCoroutine(DesactiveMenu(mainMenu,3));
     }
 
     public void SetPlayers()
@@ -68,15 +68,14 @@ public class GameManager : MonoBehaviour
         {
             incorrectValueSetPlayers.SetActive(false);
             numberOfPlayerMenu.SetActive(false);
-            StartCoroutine(MainTitleSpawn());
+            StartCoroutine(ActiveMenu(creatingBoard, 0));
+            FadeScript.timeOfFade = 1.5f;
+            FadeScript.m_Fading = false;
+            StartCoroutine(ActiveMenu(boxGenerator,5));
+            StartCoroutine(ActiveButton(playButton, 15));
+            StartCoroutine(DesactiveMenu(creatingBoard, 5));
         }
        
-    }
-
-    IEnumerator MainTitleSpawn()
-    {
-        yield return new WaitForSeconds(1);
-        boxGenerator.SetActive(true);
     }
 
     public void UpdateScore()
@@ -105,7 +104,8 @@ public class GameManager : MonoBehaviour
             boxGenerator.SetActive(false);
             battle.p2IsDifferent = false;
             StartAnimation();
-            StartCoroutine(SelectPlayers());
+            StartCoroutine(SelectPlayer1());
+            StartCoroutine(SelectPlayer2());
         }
         else
         {
@@ -138,17 +138,22 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    private IEnumerator SelectPlayers()
+    private IEnumerator SelectPlayer1()
     {
         yield return new WaitForSeconds(3);
         p1Animation.SetActive(false);
-        p2Animation.SetActive(false);
         p1Panel.SetActive(true);
-        p2Panel.SetActive(true);
         battle.p1Image.gameObject.SetActive(true);
+        battle.StartBatlle();
+    }
+    private IEnumerator SelectPlayer2()
+    {
+        yield return new WaitForSeconds(5);
+        p2Animation.SetActive(false);
+        p2Panel.SetActive(true);
         battle.p2Image.gameObject.SetActive(true);
         continueButton.SetActive(true);
-        battle.StartBatlle();
+        
     }
     public void StartAnimation()
     {
@@ -170,15 +175,25 @@ public class GameManager : MonoBehaviour
         p2Animation.GetComponent<SpriteRenderer>().sprite = standardSprite;
     }
 
-    private IEnumerator DesactiveMenu(GameObject menu)
+    private IEnumerator DesactiveMenu(GameObject menu,int timeToWait)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(timeToWait);
         menu.SetActive(false);
+        FadeScript.timeOfFade = 1;
+        FadeScript.m_Fading = false;
     }
 
-    private IEnumerator ActiveMenu(GameObject menu)
+    private IEnumerator ActiveMenu(GameObject menu,int timeToWait)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(timeToWait);
         menu.SetActive(true);
+        
     }
+    private IEnumerator ActiveButton(GameObject button, int timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        button.SetActive(true);
+    }
+
+   
 }

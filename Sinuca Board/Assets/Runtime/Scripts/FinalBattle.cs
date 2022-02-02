@@ -64,5 +64,6 @@ public class FinalBattle : MonoBehaviour
     {
         LaurelChampion.gameObject.SetActive(true);
         FadeScript.m_Fading = true;
+        FadeScript.timeOfFade = 1.5f;
     }
 }

@@ -5,17 +5,22 @@ using UnityEngine;
 public class SfxManager : MonoBehaviour
 {
     [SerializeField] AudioSource sFXManager;
-    [SerializeField] AudioClip startSFXClip;
+    [SerializeField] AudioClip startSfxClip;
+    [SerializeField] AudioClip crayonSfx;
 
 
-    public void PlaySfx(AudioClip clip)
+    public void PlaySfx(AudioClip clip,float value)
     {
-        sFXManager.PlayOneShot(clip);
+        sFXManager.PlayOneShot(clip,value);
     }
 
     public void StartSound()
     {
-        PlaySfx(startSFXClip);
+        PlaySfx(startSfxClip,0.5f);
     }
     
+    public void WritingSound()
+    {
+        PlaySfx(crayonSfx,1);
+    }
 }
