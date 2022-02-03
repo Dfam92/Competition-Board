@@ -10,6 +10,7 @@ public class SfxManager : MonoBehaviour
     [SerializeField] AudioClip crayonSfx;
     [SerializeField] AudioClip spinSound;
     [SerializeField] AudioClip selectPlayerSound;
+    [SerializeField] AudioClip readySound;
 
 
     public void PlaySfx(AudioClip clip,float value)
@@ -41,6 +42,13 @@ public class SfxManager : MonoBehaviour
     {
         sFXManager.loop = false;
         sFXManager.Stop();
+        LetsStart();
+    }
+
+    public void LetsStart()
+    {
+        PlaySfx(readySound, 0.8f);
+        
     }
     private IEnumerator StartSpin()
     {
@@ -49,11 +57,11 @@ public class SfxManager : MonoBehaviour
         sFXManager.clip = spinSound;
         sFXManager.Play();
         StartCoroutine(StopSpin());
-
     }
     private IEnumerator StopSpin()
     {
         yield return new WaitForSeconds(3.75f);
         StopSpinSound();
+       
     }
 }

@@ -5,25 +5,25 @@ using DG.Tweening;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioSource audioManager;
+    public AudioSource audioSource;
     [SerializeField] AudioClip mainTitleClip;
 
 
 
     private void Start()
     {
-        audioManager.DOFade(0.8f, 10);
+        audioSource.DOFade(1f, 10);
         PlayClip(mainTitleClip);
     }
 
     public void PlayClip(AudioClip clip)
     {
-        audioManager.clip = clip;
-        audioManager.Play();
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 
     public void StopClip()
     {
-        audioManager.Stop();
+        audioSource.Stop();
     }
 }

@@ -1722,7 +1722,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93587061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 955484281}
@@ -4480,7 +4480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84e8b475a384774bb592fd6c074619e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 253144385}
+  audioSource: {fileID: 253144385}
   mainTitleClip: {fileID: 8300000, guid: 667e651fa86ccbb449e8e5926b90393e, type: 3}
 --- !u!82 &253144385
 AudioSource:
@@ -11484,18 +11484,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1321990526}
-        m_TargetAssemblyTypeName: SfxManager, Assembly-CSharp
-        m_MethodName: SpinSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &599813847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15631,7 +15619,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919700040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1836222454}
@@ -23027,6 +23015,7 @@ MonoBehaviour:
   crayonSfx: {fileID: 8300000, guid: 626cf071e37f1a049aba2e997856fb8a, type: 3}
   spinSound: {fileID: 8300000, guid: 7ed41ac0e2bf1f64d874a5713298ea2d, type: 3}
   selectPlayerSound: {fileID: 8300000, guid: f2a0f9ab886d0cc45945d7779fc6056f, type: 3}
+  readySound: {fileID: 8300000, guid: 144de6197dbd3204a8bf53ee17a9de22, type: 3}
 --- !u!1 &1325864205
 GameObject:
   m_ObjectHideFlags: 0
@@ -30962,7 +30951,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775536148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 628444737}
@@ -32314,8 +32303,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.0495605, y: 6}
-  m_SizeDelta: {x: 6.0994, y: -0.9974}
+  m_AnchoredPosition: {x: 3.0495605, y: -3.6279907}
+  m_SizeDelta: {x: 6.099, y: 18.258}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836222455
 MonoBehaviour:
@@ -36155,6 +36144,8 @@ MonoBehaviour:
   creatingBoard: {fileID: 85875058}
   standardSprite: {fileID: 21300000, guid: 40ebd127efb008e4fa91c1557244af0b, type: 3}
   sfxManager: {fileID: 1321990526}
+  audioManager: {fileID: 253144384}
+  vsImage: {fileID: 919700042}
   incorrectValueSetClassifiedPlayers: {fileID: 812900793}
   boxGenerator: {fileID: 268874290}
   battleMenu: {fileID: 1836222453}

@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject creatingBoard;
     [SerializeField] Sprite standardSprite;
     [SerializeField] SfxManager sfxManager;
+    [SerializeField] AudioManager audioManager;
+    [SerializeField] RawImage vsImage;
 
     public GameObject incorrectValueSetClassifiedPlayers;
     public GameObject boxGenerator;
@@ -39,7 +41,18 @@ public class GameManager : MonoBehaviour
 
     public int numberOfPlayers;
     public bool finalIsReady;
+    Vector3 standardVsPos;
+    Vector3 standardP1Panel;
+    Vector3 standardP2Panel;
 
+
+    private void Start()
+    {
+        standardVsPos = vsImage.transform.position;
+        standardP1Panel = p1Panel.transform.position;
+        standardP2Panel = p2Panel.transform.position;
+
+    }
     private void Update()
     {
         if(p1WinToggle.isOn == true)
@@ -113,6 +126,10 @@ public class GameManager : MonoBehaviour
             boxGenerator.SetActive(false);
             StartAnimation();
             SetPlayerInBattle();
+            sfxManager.SpinSound();
+            RestartPos();
+            audioManager.audioSource.DOFade(0, 3);
+            
         }
         else
         {
@@ -163,6 +180,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ActiveMenu(p2Panel, 0.5f));
         sfxManager.SelectSound();
         battle.p2Image.gameObject.SetActive(true);
+        vsImage.transform.DOLocalMoveZ(0, 0.75f);
+        p1Panel.transform.DOLocalMoveZ(0, 0.75f);
+        p2Panel.transform.DOLocalMoveZ(0, 0.75f);
+        StartCoroutine(ChangeMusic());
+        
     }
     public void StartAnimation()
     {
@@ -214,10 +236,22 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ReArmFade()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         FadeScript.timeOfFade = 0.5f;
         FadeScript.m_Fading = true;
 
     }
    
+    private void RestartPos()
+    {
+        vsImage.transform.position = standardVsPos;
+        p1Panel.transform.position = standardP1Panel;
+        p2Panel.transform.position = standardP2Panel;
+    }
+
+    private IEnumerator ChangeMusic()
+    {
+        yield return new WaitForSeconds(0.3f);
+        
+    }
 }
