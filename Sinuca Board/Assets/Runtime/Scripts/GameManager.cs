@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Animator animator2;
     [SerializeField] GameObject p1Panel;
     [SerializeField] GameObject p2Panel;
+    [SerializeField] GameObject p1Name;
+    [SerializeField] GameObject p2Name;
     [SerializeField] GameObject continueButton;
     [SerializeField] GameObject playButton;
     [SerializeField] GameObject creatingBoard;
@@ -42,10 +44,13 @@ public class GameManager : MonoBehaviour
         if(p1WinToggle.isOn == true)
         {
             p2WinToggle.isOn = false;
+            continueButton.SetActive(true);
         }
         else if (p2WinToggle.isOn == true)
         {
             p1WinToggle.isOn = false;
+            continueButton.SetActive(true);
+
         }
     }
 
@@ -71,8 +76,9 @@ public class GameManager : MonoBehaviour
             StartCoroutine(ActiveMenu(creatingBoard, 0));
             FadeScript.timeOfFade = 1.5f;
             FadeScript.m_Fading = false;
+            StartCoroutine(ReArmFade());
             StartCoroutine(ActiveMenu(boxGenerator,5));
-            StartCoroutine(ActiveButton(playButton, 15));
+            StartCoroutine(ActiveButton(playButton, 10));
             StartCoroutine(DesactiveMenu(creatingBoard, 5));
         }
        
@@ -89,6 +95,7 @@ public class GameManager : MonoBehaviour
             IncreaseVictories(battle.player1, battle.player2, battle.victoryValue);
             RearmAnimation();
             incorrectValueSetWins.SetActive(false);
+            
         }
         else
         {
@@ -101,11 +108,10 @@ public class GameManager : MonoBehaviour
         if (playerCompletedGames.Count < numberOfPlayers)
         {
             battleMenu.SetActive(true);
+            continueButton.SetActive(false);
             boxGenerator.SetActive(false);
-            battle.p2IsDifferent = false;
             StartAnimation();
-            StartCoroutine(SelectPlayer1());
-            StartCoroutine(SelectPlayer2());
+            SetPlayerInBattle();
         }
         else
         {
@@ -141,19 +147,19 @@ public class GameManager : MonoBehaviour
     private IEnumerator SelectPlayer1()
     {
         yield return new WaitForSeconds(3);
+        p1Name.SetActive(true);
         p1Animation.SetActive(false);
-        p1Panel.SetActive(true);
         battle.p1Image.gameObject.SetActive(true);
         battle.StartBatlle();
     }
     private IEnumerator SelectPlayer2()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
+        p2Name.SetActive(true);
         p2Animation.SetActive(false);
-        p2Panel.SetActive(true);
+        StartCoroutine(ActiveMenu(p1Panel, 0.5f));
+        StartCoroutine(ActiveMenu(p2Panel, 0.5f));
         battle.p2Image.gameObject.SetActive(true);
-        continueButton.SetActive(true);
-        
     }
     public void StartAnimation()
     {
@@ -175,25 +181,40 @@ public class GameManager : MonoBehaviour
         p2Animation.GetComponent<SpriteRenderer>().sprite = standardSprite;
     }
 
-    private IEnumerator DesactiveMenu(GameObject menu,int timeToWait)
+    private void SetPlayerInBattle()
+    {
+        battle.p2IsDifferent = false;
+        p1Name.SetActive(false);
+        p2Name.SetActive(false);
+        StartCoroutine(SelectPlayer1());
+        StartCoroutine(SelectPlayer2());
+    }
+    private IEnumerator DesactiveMenu(GameObject menu,float timeToWait)
     {
         yield return new WaitForSeconds(timeToWait);
         menu.SetActive(false);
-        FadeScript.timeOfFade = 1;
+        FadeScript.timeOfFade = 1f;
         FadeScript.m_Fading = false;
     }
 
-    private IEnumerator ActiveMenu(GameObject menu,int timeToWait)
+    private IEnumerator ActiveMenu(GameObject menu,float timeToWait)
     {
         yield return new WaitForSeconds(timeToWait);
         menu.SetActive(true);
         
     }
-    private IEnumerator ActiveButton(GameObject button, int timeToWait)
+    private IEnumerator ActiveButton(GameObject button, float timeToWait)
     {
         yield return new WaitForSeconds(timeToWait);
         button.SetActive(true);
     }
 
+    private IEnumerator ReArmFade()
+    {
+        yield return new WaitForSeconds(2);
+        FadeScript.timeOfFade = 0.5f;
+        FadeScript.m_Fading = true;
+
+    }
    
 }
