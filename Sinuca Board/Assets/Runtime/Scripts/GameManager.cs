@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject playButton;
     [SerializeField] GameObject creatingBoard;
     [SerializeField] Sprite standardSprite;
+    [SerializeField] SfxManager sfxManager;
 
     public GameObject incorrectValueSetClassifiedPlayers;
     public GameObject boxGenerator;
@@ -150,6 +151,7 @@ public class GameManager : MonoBehaviour
         p1Name.SetActive(true);
         p1Animation.SetActive(false);
         battle.p1Image.gameObject.SetActive(true);
+        sfxManager.SelectSound();
         battle.StartBatlle();
     }
     private IEnumerator SelectPlayer2()
@@ -159,6 +161,7 @@ public class GameManager : MonoBehaviour
         p2Animation.SetActive(false);
         StartCoroutine(ActiveMenu(p1Panel, 0.5f));
         StartCoroutine(ActiveMenu(p2Panel, 0.5f));
+        sfxManager.SelectSound();
         battle.p2Image.gameObject.SetActive(true);
     }
     public void StartAnimation()

@@ -11484,6 +11484,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1321990526}
+        m_TargetAssemblyTypeName: SfxManager, Assembly-CSharp
+        m_MethodName: SpinSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &599813847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12150,7 +12162,7 @@ MonoBehaviour:
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
   m_Text: 
   m_CaretBlinkRate: 0.85
-  m_CaretWidth: 1
+  m_CaretWidth: 5
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
 --- !u!114 &628444739
@@ -16416,7 +16428,7 @@ MonoBehaviour:
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
   m_Text: 
   m_CaretBlinkRate: 0.85
-  m_CaretWidth: 1
+  m_CaretWidth: 5
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
 --- !u!114 &955484283
@@ -23013,6 +23025,8 @@ MonoBehaviour:
   sFXManager: {fileID: 1321990524}
   startSfxClip: {fileID: 8300000, guid: 51f36f5257663464e93aed8ee0f36494, type: 3}
   crayonSfx: {fileID: 8300000, guid: 626cf071e37f1a049aba2e997856fb8a, type: 3}
+  spinSound: {fileID: 8300000, guid: 7ed41ac0e2bf1f64d874a5713298ea2d, type: 3}
+  selectPlayerSound: {fileID: 8300000, guid: f2a0f9ab886d0cc45945d7779fc6056f, type: 3}
 --- !u!1 &1325864205
 GameObject:
   m_ObjectHideFlags: 0
@@ -32358,6 +32372,8 @@ MonoBehaviour:
   p1Name: {fileID: 1411990424}
   p2Name: {fileID: 1746444764}
   classification: {fileID: 1964953492}
+  p1Input: {fileID: 955484282}
+  p2Input: {fileID: 628444738}
   p1Image: {fileID: 2140269116}
   p2Image: {fileID: 1937746992}
   player1: {fileID: 0}
@@ -34767,6 +34783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2029463266}
   inputTextClassified: {fileID: 1908864674}
+  setInput: {fileID: 1580609994}
   classificationButton: {fileID: 1950285230}
   listOfPlayers: {fileID: 1325864205}
   leaderBoardText: []
@@ -36137,6 +36154,7 @@ MonoBehaviour:
   playButton: {fileID: 599813844}
   creatingBoard: {fileID: 85875058}
   standardSprite: {fileID: 21300000, guid: 40ebd127efb008e4fa91c1557244af0b, type: 3}
+  sfxManager: {fileID: 1321990526}
   incorrectValueSetClassifiedPlayers: {fileID: 812900793}
   boxGenerator: {fileID: 268874290}
   battleMenu: {fileID: 1836222453}

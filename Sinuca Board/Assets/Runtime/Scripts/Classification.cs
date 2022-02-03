@@ -9,6 +9,7 @@ public class Classification : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     [SerializeField] Text inputTextClassified;
+    [SerializeField] InputField setInput;
     [SerializeField] GameObject classificationButton;
     [SerializeField] GameObject listOfPlayers;
     [SerializeField] List<TextMeshProUGUI> leaderBoardText;
@@ -27,6 +28,10 @@ public class Classification : MonoBehaviour
         {
             classificationBoard[i].text = " ";
         }
+    }
+    private void OnDisable()
+    {
+        setInput.text = "";
     }
     void OnEnable()
     {

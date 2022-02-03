@@ -12,6 +12,9 @@ public class Battle : MonoBehaviour
     [SerializeField] TextMeshProUGUI p1Name;
     [SerializeField] TextMeshProUGUI p2Name;
     [SerializeField] GameObject classification;
+    [SerializeField] InputField p1Input;
+    [SerializeField] InputField p2Input;
+    
 
     public RawImage p1Image;
     public RawImage p2Image;
@@ -37,6 +40,8 @@ public class Battle : MonoBehaviour
         {
             int.TryParse(ballInputP1.text, out ballInputValue1);
             int.TryParse(ballInputP2.text, out ballInputValue2);
+            p1Input.text = "";
+            p2Input.text = "";
             victoryValue = 1;
         }
     }
