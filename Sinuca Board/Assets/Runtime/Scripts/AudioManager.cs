@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] List<AudioClip> battleClips;
     [SerializeField] AudioClip drumSound;
     [SerializeField] AudioClip sadSong;
+    [SerializeField] AudioClip finalSongs;
 
 
 
@@ -28,6 +29,19 @@ public class AudioManager : MonoBehaviour
         }
        
     }
+
+    public void FinalMusics()
+    {
+        if (audioSource != null)
+        {
+            audioSource.DOFade(0.8f, 10);
+            var index = Random.Range(0, battleClips.Count);
+            PlayClip(finalSongs);
+        }
+
+    }
+
+
     public void PlayClip(AudioClip clip)
     {
         audioSource.clip = clip;
@@ -38,7 +52,7 @@ public class AudioManager : MonoBehaviour
     {
         if(audioSource != null)
         {
-            audioSource.DOFade(0.9f, 5);
+            audioSource.DOFade(0.8f, 5);
             PlayClip(mainTitleClip);
         }
         
@@ -47,7 +61,7 @@ public class AudioManager : MonoBehaviour
     {
         if (audioSource != null)
         {
-            audioSource.DOFade(0.9f, 5);
+            audioSource.DOFade(0.8f, 5);
             PlayClip(sadSong);
         }
     }
@@ -66,6 +80,12 @@ public class AudioManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToWaitForNewMusic);
         SadMusic();
+    }
+
+    public IEnumerator ChangeToFinalMusic(float timeToWaitForNewMusic)
+    {
+        yield return new WaitForSeconds(timeToWaitForNewMusic);
+        FinalMusics();
     }
     public void StopClip()
     {

@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class SfxManager : MonoBehaviour
 {
@@ -12,8 +10,8 @@ public class SfxManager : MonoBehaviour
     [SerializeField] AudioClip selectPlayerSound;
     [SerializeField] AudioClip readySound;
     [SerializeField] AudioClip clickButtonSound;
-    
-    [SerializeField]  AudioClip drumClickSound;
+    [SerializeField] AudioClip drumClickSound;
+    [SerializeField] AudioClip finalRoundVoice;
 
 
     public void PlaySfx(AudioClip clip,float value)
@@ -50,6 +48,10 @@ public class SfxManager : MonoBehaviour
         PlaySfx(clickButtonSound, 1);
     }
 
+    public void FinalRound()
+    {
+        PlaySfx(finalRoundVoice, 1);
+    }
     private void StopSpinSound()
     {
         sfxAudioSource.loop = false;

@@ -108,6 +108,7 @@ public class Classification : MonoBehaviour
             else
             {
                 gameManager.finalIsReady = true;
+                StartCoroutine(audioManager.ChangeToFinalMusic(0));
                 StartCoroutine(StartFinalPhase());
             }
             gameManager.incorrectValueSetClassifiedPlayers.SetActive(false);
@@ -127,7 +128,7 @@ public class Classification : MonoBehaviour
     }
     IEnumerator StartFinalPhase()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
         ResetPlayerInformation();
         ResetButtons();
         ResetLists();
