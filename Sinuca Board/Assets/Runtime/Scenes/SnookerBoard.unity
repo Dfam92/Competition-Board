@@ -4482,6 +4482,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 253144385}
   mainTitleClip: {fileID: 8300000, guid: 667e651fa86ccbb449e8e5926b90393e, type: 3}
+  battleClips:
+  - {fileID: 8300000, guid: 4b45f0a065eb0df4cb1df358ce9a5181, type: 3}
+  - {fileID: 8300000, guid: 73436fa0e48a1b54a945fb428cb83744, type: 3}
+  - {fileID: 8300000, guid: be381373716b95c44b9e95912c1fb1c9, type: 3}
+  - {fileID: 8300000, guid: fd8ddcd881b32fc49bd4957927c8c3bd, type: 3}
+  - {fileID: 8300000, guid: cb746e798c4fb224a90fbc055a25f61f, type: 3}
+  - {fileID: 8300000, guid: f17d340977d7c8d4aa6a1e15ec03db32, type: 3}
+  - {fileID: 8300000, guid: a1cd68cd0f14bd34e93bc6b38684229d, type: 3}
+  drumSound: {fileID: 8300000, guid: 62818aaf3a471b442a73de78ce4e93a1, type: 3}
+  sadSong: {fileID: 8300000, guid: 2daafd7b00a253141bd9f98ebfd00bb9, type: 3}
 --- !u!82 &253144385
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6666,6 +6676,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1321990526}
+        m_TargetAssemblyTypeName: SfxManager, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &366848967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6998,6 +7020,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2029463266}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1321990526}
+        m_TargetAssemblyTypeName: SfxManager, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11475,6 +11509,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2029463266}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: PlayNextGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1321990526}
+        m_TargetAssemblyTypeName: SfxManager, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23010,12 +23056,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030da9fa4f4e9d14199bb0de22f1b393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sFXManager: {fileID: 1321990524}
+  sfxAudioSource: {fileID: 1321990524}
   startSfxClip: {fileID: 8300000, guid: 51f36f5257663464e93aed8ee0f36494, type: 3}
   crayonSfx: {fileID: 8300000, guid: 626cf071e37f1a049aba2e997856fb8a, type: 3}
   spinSound: {fileID: 8300000, guid: 7ed41ac0e2bf1f64d874a5713298ea2d, type: 3}
   selectPlayerSound: {fileID: 8300000, guid: f2a0f9ab886d0cc45945d7779fc6056f, type: 3}
   readySound: {fileID: 8300000, guid: 144de6197dbd3204a8bf53ee17a9de22, type: 3}
+  clickButtonSound: {fileID: 8300000, guid: cbb9fc739e8d91d48bf918eb286ebe90, type: 3}
+  drumClickSound: {fileID: 8300000, guid: 529b41014eb9c3047930b5bf68864ead, type: 3}
 --- !u!1 &1325864205
 GameObject:
   m_ObjectHideFlags: 0
@@ -32303,7 +32351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.0495605, y: -3.6279907}
+  m_AnchoredPosition: {x: 3.0495605, y: -3.6280518}
   m_SizeDelta: {x: 6.099, y: 18.258}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836222455
@@ -34522,6 +34570,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1321990526}
+        m_TargetAssemblyTypeName: SfxManager, Assembly-CSharp
+        m_MethodName: DrumClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 253144384}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: StopClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 253144384}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: SadMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1950285233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34795,6 +34879,7 @@ MonoBehaviour:
   - {fileID: 1031946759}
   - {fileID: 97262995}
   - {fileID: 1507560380}
+  audioManager: {fileID: 253144384}
   classifiedPlayers: []
 --- !u!114 &1964953495
 MonoBehaviour:
@@ -36125,10 +36210,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef73a044ff18e9140b05c847c449c0bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputOfPlayersText: {fileID: 1407692242}
-  battle: {fileID: 1836222457}
   numberOfPlayerMenu: {fileID: 954407871}
   mainMenu: {fileID: 1647755694}
+  creatingBoard: {fileID: 85875058}
+  boxGenerator: {fileID: 268874290}
+  battleMenu: {fileID: 1836222453}
+  battleFinalMenu: {fileID: 1097301153}
+  classificationMenu: {fileID: 1964953492}
+  inputOfPlayersText: {fileID: 1407692242}
+  battle: {fileID: 1836222457}
   incorrectValueSetPlayers: {fileID: 1673142733}
   incorrectValueSetWins: {fileID: 24009998}
   p1Animation: {fileID: 127105504}
@@ -36139,18 +36229,15 @@ MonoBehaviour:
   p2Panel: {fileID: 1775536148}
   p1Name: {fileID: 1411990422}
   p2Name: {fileID: 1746444762}
+  p1WinToggle: {fileID: 1074973430}
+  p2WinToggle: {fileID: 1080560003}
   continueButton: {fileID: 366848964}
   playButton: {fileID: 599813844}
-  creatingBoard: {fileID: 85875058}
+  incorrectValueSetClassifiedPlayers: {fileID: 812900793}
   standardSprite: {fileID: 21300000, guid: 40ebd127efb008e4fa91c1557244af0b, type: 3}
   sfxManager: {fileID: 1321990526}
   audioManager: {fileID: 253144384}
   vsImage: {fileID: 919700042}
-  incorrectValueSetClassifiedPlayers: {fileID: 812900793}
-  boxGenerator: {fileID: 268874290}
-  battleMenu: {fileID: 1836222453}
-  battleFinalMenu: {fileID: 1097301153}
-  classificationMenu: {fileID: 1964953492}
   players:
   - {fileID: 468391240}
   - {fileID: 337813797}
@@ -36171,8 +36258,6 @@ MonoBehaviour:
   - {fileID: 58315349}
   - {fileID: 1554529050}
   playerCompletedGames: []
-  p1WinToggle: {fileID: 1074973430}
-  p2WinToggle: {fileID: 1080560003}
   numberOfPlayers: 0
   finalIsReady: 0
 --- !u!1 &2040873149

@@ -14,6 +14,7 @@ public class Classification : MonoBehaviour
     [SerializeField] GameObject listOfPlayers;
     [SerializeField] List<TextMeshProUGUI> leaderBoardText;
     [SerializeField] List<TextMeshProUGUI> classificationBoard;
+    [SerializeField] AudioManager audioManager;
 
     public List<Player> classifiedPlayers;
     public Dictionary<Player, int> leaderBoard = new Dictionary<Player, int>();
@@ -32,6 +33,7 @@ public class Classification : MonoBehaviour
     private void OnDisable()
     {
         setInput.text = "";
+
     }
     void OnEnable()
     {
@@ -75,6 +77,7 @@ public class Classification : MonoBehaviour
        
         classificationButton.SetActive(false);
         listOfPlayers.SetActive(true);
+        StartCoroutine(audioManager.ChangeToSadMusic(1));
     }
     public void SetPlayers()
     {

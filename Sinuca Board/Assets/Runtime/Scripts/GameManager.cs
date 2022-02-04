@@ -7,10 +7,18 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] Text inputOfPlayersText;
-    [SerializeField] Battle battle;
+    [Header("Menus")]
     [SerializeField] GameObject numberOfPlayerMenu;
     [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject creatingBoard;
+    public GameObject boxGenerator;
+    public GameObject battleMenu;
+    public GameObject battleFinalMenu;
+    public GameObject classificationMenu;
+
+    [Header("Players UI's")]
+    [SerializeField] Text inputOfPlayersText;
+    [SerializeField] Battle battle;
     [SerializeField] GameObject incorrectValueSetPlayers;
     [SerializeField] GameObject incorrectValueSetWins;
     [SerializeField] GameObject p1Animation;
@@ -21,24 +29,25 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject p2Panel;
     [SerializeField] GameObject p1Name;
     [SerializeField] GameObject p2Name;
+    public Toggle p1WinToggle;
+    public Toggle p2WinToggle;
+   
+
+    [Header("General Buttons and Texts")]
     [SerializeField] GameObject continueButton;
     [SerializeField] GameObject playButton;
-    [SerializeField] GameObject creatingBoard;
+    public GameObject incorrectValueSetClassifiedPlayers;
+
+
+    [Header("Specifics instances")]
     [SerializeField] Sprite standardSprite;
     [SerializeField] SfxManager sfxManager;
     [SerializeField] AudioManager audioManager;
     [SerializeField] RawImage vsImage;
 
-    public GameObject incorrectValueSetClassifiedPlayers;
-    public GameObject boxGenerator;
-    public GameObject battleMenu;
-    public GameObject battleFinalMenu;
-    public GameObject classificationMenu;
+    [Header(" ")]
     public List<Player> players;
     public List<Player> playerCompletedGames;
-    public Toggle p1WinToggle;
-    public Toggle p2WinToggle;
-
     public int numberOfPlayers;
     public bool finalIsReady;
     Vector3 standardVsPos;
@@ -109,7 +118,10 @@ public class GameManager : MonoBehaviour
             IncreaseVictories(battle.player1, battle.player2, battle.victoryValue);
             RearmAnimation();
             incorrectValueSetWins.SetActive(false);
-            
+            audioManager.audioSource.DOFade(0, 2);
+            StartCoroutine(audioManager.ChangeToMAinMusic(1));
+            StartCoroutine(ActiveButton(playButton, 2));
+
         }
         else
         {
@@ -128,13 +140,15 @@ public class GameManager : MonoBehaviour
             SetPlayerInBattle();
             sfxManager.SpinSound();
             RestartPos();
-            audioManager.audioSource.DOFade(0, 3);
+            audioManager.audioSource.DOFade(0, 5);
+            playButton.SetActive(false);
             
         }
         else
         {
             battleMenu.SetActive(false);
             classificationMenu.SetActive(true);
+            audioManager.DrumLoop();
         }
        
     }
@@ -160,6 +174,8 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        audioManager.enabled = false;
+        sfxManager.enabled = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private IEnumerator SelectPlayer1()
@@ -183,8 +199,7 @@ public class GameManager : MonoBehaviour
         vsImage.transform.DOLocalMoveZ(0, 0.75f);
         p1Panel.transform.DOLocalMoveZ(0, 0.75f);
         p2Panel.transform.DOLocalMoveZ(0, 0.75f);
-        StartCoroutine(ChangeMusic());
-        
+        audioManager.BattleMusics();
     }
     public void StartAnimation()
     {
@@ -249,9 +264,5 @@ public class GameManager : MonoBehaviour
         p2Panel.transform.position = standardP2Panel;
     }
 
-    private IEnumerator ChangeMusic()
-    {
-        yield return new WaitForSeconds(0.3f);
-        
-    }
+   
 }
