@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class SfxManager : MonoBehaviour
 {
     public AudioSource sfxAudioSource;
@@ -12,12 +13,15 @@ public class SfxManager : MonoBehaviour
     [SerializeField] AudioClip clickButtonSound;
     [SerializeField] AudioClip drumClickSound;
     [SerializeField] AudioClip finalRoundVoice;
+    [SerializeField] AudioClip rocketSound;
+    [SerializeField] AudioClip hearthBeat;
 
 
     public void PlaySfx(AudioClip clip,float value)
     {
         if(sfxAudioSource != null)
         {
+            
             sfxAudioSource.PlayOneShot(clip, value);
         }
         
@@ -30,6 +34,7 @@ public class SfxManager : MonoBehaviour
     
     public void WritingSound()
     {
+        
         PlaySfx(crayonSfx,1);
     }
 
@@ -52,6 +57,14 @@ public class SfxManager : MonoBehaviour
     {
         PlaySfx(finalRoundVoice, 1);
     }
+
+    public void HearthBeatSound()
+    {
+        sfxAudioSource.clip = hearthBeat;
+        sfxAudioSource.volume = 1;
+        sfxAudioSource.loop = true;
+        sfxAudioSource.Play();
+    }
     private void StopSpinSound()
     {
         sfxAudioSource.loop = false;
@@ -63,11 +76,13 @@ public class SfxManager : MonoBehaviour
     {
         PlaySfx(drumClickSound, 1);
     }
+
     public void LetsStart()
     {
         PlaySfx(readySound, 0.8f);
         
     }
+   
     private IEnumerator StartSpin()
     {
         yield return new WaitForSeconds(0.5f);
@@ -75,6 +90,14 @@ public class SfxManager : MonoBehaviour
         sfxAudioSource.clip = spinSound;
         sfxAudioSource.Play();
         StartCoroutine(StopSpin());
+    }
+
+    public IEnumerator TempRocket(int timeToExplode)
+    {
+        yield return new WaitForSeconds(timeToExplode);
+        sfxAudioSource.clip = rocketSound;
+        sfxAudioSource.Play();
+        
     }
     private IEnumerator StopSpin()
     {

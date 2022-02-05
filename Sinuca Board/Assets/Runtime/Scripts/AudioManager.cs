@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip drumSound;
     [SerializeField] AudioClip sadSong;
     [SerializeField] AudioClip finalSongs;
+    
 
 
 
@@ -34,7 +35,7 @@ public class AudioManager : MonoBehaviour
     {
         if (audioSource != null)
         {
-            audioSource.DOFade(0.8f, 10);
+            audioSource.DOFade(1f, 10);
             var index = Random.Range(0, battleClips.Count);
             PlayClip(finalSongs);
         }
@@ -65,6 +66,15 @@ public class AudioManager : MonoBehaviour
             PlayClip(sadSong);
         }
     }
+
+    private void ChampionMusic()
+    {
+        if (audioSource != null)
+        {
+            audioSource.DOFade(0.8f, 5);
+            PlayClip(sadSong);
+        }
+    }
     public void DrumLoop()
     {
         PlayClip(drumSound);
@@ -86,6 +96,11 @@ public class AudioManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToWaitForNewMusic);
         FinalMusics();
+    }
+
+    public IEnumerator ChangeToChampionMusic(float timeToWaitForNewMusic)
+    {
+        yield return new WaitForSeconds(timeToWaitForNewMusic);
     }
     public void StopClip()
     {

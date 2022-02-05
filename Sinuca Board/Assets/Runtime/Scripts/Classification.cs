@@ -132,7 +132,6 @@ public class Classification : MonoBehaviour
         ResetPlayerInformation();
         ResetButtons();
         ResetLists();
-        Debug.Log("FinalStarted");
         gameManager.battleFinalMenu.SetActive(true);
         gameManager.boxGenerator.SetActive(false);
     }
