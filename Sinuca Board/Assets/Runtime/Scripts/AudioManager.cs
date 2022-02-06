@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip drumSound;
     [SerializeField] AudioClip sadSong;
     [SerializeField] AudioClip finalSongs;
-    
+    [SerializeField] AudioClip championSong;
 
 
 
@@ -72,7 +72,7 @@ public class AudioManager : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.DOFade(0.8f, 5);
-            PlayClip(sadSong);
+            PlayClip(championSong);
         }
     }
     public void DrumLoop()
@@ -101,6 +101,7 @@ public class AudioManager : MonoBehaviour
     public IEnumerator ChangeToChampionMusic(float timeToWaitForNewMusic)
     {
         yield return new WaitForSeconds(timeToWaitForNewMusic);
+        ChampionMusic();
     }
     public void StopClip()
     {

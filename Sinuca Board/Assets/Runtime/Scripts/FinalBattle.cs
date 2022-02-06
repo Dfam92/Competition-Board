@@ -75,6 +75,7 @@ public class FinalBattle : MonoBehaviour
             p1Champion = false;
             p1Pontuation = 0;
             StartCoroutine(sfxManager.TempRocket(1));
+            StartCoroutine(audioManager.ChangeToChampionMusic(2));
 
         }
 
@@ -88,6 +89,7 @@ public class FinalBattle : MonoBehaviour
             p2Champion = false;
             p2Pontuation = 0;
             StartCoroutine(sfxManager.TempRocket(1));
+            StartCoroutine(audioManager.ChangeToChampionMusic(2));
         }
         
     }
