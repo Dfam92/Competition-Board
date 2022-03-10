@@ -4,6 +4,19 @@
 
 This Project demonstrates a snooker championship classification using Unity tools, all was thought to provide the "Real" player an immersive sensation of being part of this "virtual" game.
 
+To make this Project I utilized:
+## Unity
+- DotWeen
+- System.Linq
+- TM Pro
+- 2D Casual UI
+- 3D Games Effect Pack
+- SoundBits
+## External Editors
+- Audacity
+- Photoshop
+- Adobe Illustrator
+
 <p align="center">
 <img src = "MainMenu.png" width = "50%" >
 </p>
