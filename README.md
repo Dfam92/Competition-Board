@@ -33,12 +33,24 @@ When you click "Continue" we will return to MainBoard and the values will be cha
 <img src = "https://github.com/Dfam92/Competition-Board/blob/main/MainBoardChanged1.png" width = "45%" > <img src = "https://github.com/Dfam92/Competition-Board/blob/main/FinalMainBoard.png" width = "45%" >
 </p>
 
-After all Players plays your games, when press "play" the Classification Menu will be appear.
+After all Players plays your games, when press "play" the Classification Menu will be appear. Here you can select how much players will be classifieds to the next phase. The classification consider firstly the table position and the number of victories, if its tie the number of balls will be the tie break.
+If the value of classifieds is 2 the final will be started, if will higher than 2 all the game process will be repeated with one difference "the priority of classification nows follow the order in this classification and no more in table position". If occur any error a message will displayed.
 
 <p align="center">
 <img src = "https://github.com/Dfam92/Competition-Board/blob/main/Classification.png" width = "45%" > <img src = "https://github.com/Dfam92/Competition-Board/blob/main/ClassificationMenu.png" width = "45%" >
 </p>
 
+The Final is better of 5, then the player which reach 3 wins first will win the championship.
+
+<p align="center">
+<img src = "https://github.com/Dfam92/Competition-Board/blob/main/FinalBattle.png" width = "45%" > <img src = "https://github.com/Dfam92/Competition-Board/blob/main/FInalBattle2.png" width = "45%" >
+</p>
+
+When the final ends, the championMenu will be displayed and the  firework particles and final animation will shown.
+
+<p align="center">
+<img src = "https://github.com/Dfam92/Competition-Board/blob/main/ChampionMenu.png" width = "50%" >
+</p>
 
 
 
