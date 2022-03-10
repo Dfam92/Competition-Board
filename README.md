@@ -2,15 +2,19 @@
 
 <h2 align = center>🎮 Unity UI/UX Project 🎮</h2>
 
-To make this Project I utilized: 
-## Unity
+<h3 align = center> A small video of the project ⏯️ (https://youtu.be/MBZKBsj-RIw) </h2>
+
+
+# To make this Project I utilized: 
+Unity
 - [DotWeen](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
 - [System.Linq](https://docs.microsoft.com/pt-br/dotnet/api/system.linq.enumerable.orderbydescending?view=net-6.0)
 - [TM Pro](https://docs.unity3d.com/Manual/com.unity.textmeshpro.html)
 - [2D Casual UI](https://assetstore.unity.com/packages/2d/gui/icons/2d-casual-ui-hd-82080)
 - [3D Games Effect Pack](https://assetstore.unity.com/packages/vfx/particles/3d-games-effects-pack-free-42285)
 - [SoundBits](https://assetstore.unity.com/packages/audio/sound-fx/soundbits-free-sound-fx-collection-31837)
-## External Editors
+
+External Editors
 - [Audacity](https://www.audacityteam.org/download/)
 - Visual Studio 2019
 - Photoshop
