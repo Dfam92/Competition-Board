@@ -6,14 +6,14 @@ This Project demonstrates a snooker championship classification using Unity tool
 
 To make this Project I utilized:
 ## Unity
-- DotWeen
-- System.Linq
-- TM Pro
-- 2D Casual UI
-- 3D Games Effect Pack
-- SoundBits
+- [DotWeen](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
+- [System.Linq](https://docs.microsoft.com/pt-br/dotnet/api/system.linq.enumerable.orderbydescending?view=net-6.0)
+- [TM Pro](https://docs.unity3d.com/Manual/com.unity.textmeshpro.html)
+- [2D Casual UI](https://assetstore.unity.com/packages/2d/gui/icons/2d-casual-ui-hd-82080)
+- [3D Games Effect Pack](https://assetstore.unity.com/packages/vfx/particles/3d-games-effects-pack-free-42285)
+- [SoundBits](https://assetstore.unity.com/packages/audio/sound-fx/soundbits-free-sound-fx-collection-31837)
 ## External Editors
-- Audacity
+- [Audacity](https://www.audacityteam.org/download/)
 - Photoshop
 - Adobe Illustrator
 
