@@ -1,10 +1,8 @@
-<h1 align = center> Competition-SnookerChampionship </h1>
+<h1 align = center> Competition-SnookerChampionship 🎱</h1>
 
-<h2 align = center> Unity UI/UX Project </h2>
+<h2 align = center>🎮 Unity UI/UX Project 🎮</h2>
 
-This Project demonstrates a snooker championship classification using Unity tools, all was thought to provide the "Real" player an immersive sensation of being part of this "virtual" game.
-
-To make this Project I utilized:
+To make this Project I utilized: 
 ## Unity
 - [DotWeen](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
 - [System.Linq](https://docs.microsoft.com/pt-br/dotnet/api/system.linq.enumerable.orderbydescending?view=net-6.0)
@@ -14,8 +12,11 @@ To make this Project I utilized:
 - [SoundBits](https://assetstore.unity.com/packages/audio/sound-fx/soundbits-free-sound-fx-collection-31837)
 ## External Editors
 - [Audacity](https://www.audacityteam.org/download/)
+- Visual Studio 2019
 - Photoshop
 - Adobe Illustrator
+
+This Project demonstrates a snooker championship classification using Unity tools, all was thought to provide the "Real" player an immersive sensation of being part of this "virtual" game.
 
 <p align="center">
 <img src = "MainMenu.png" width = "50%" >
@@ -46,8 +47,10 @@ When you click "Continue" we will return to MainBoard and the values will be cha
 <img src = "https://github.com/Dfam92/Competition-Board/blob/main/MainBoardChanged1.png" width = "45%" > <img src = "https://github.com/Dfam92/Competition-Board/blob/main/FinalMainBoard.png" width = "45%" >
 </p>
 
-After all Players plays your games, when press "play" the Classification Menu will be appear. Here you can select how much players will be classifieds to the next phase. The classification consider firstly the table position and the number of victories, if its tie the number of balls will be the tie break.
+<p align = "justify"> After all Players plays your games, when press "play" the Classification Menu will be appear. Here you can select how much players will be classifieds to the next phase. The classification consider firstly the table position and the number of victories, if its tie the number of balls will be the tie break.
 If the value of classifieds is 2 the final will be started, if will higher than 2 all the game process will be repeated with one difference "the priority of classification nows follow the order in this classification and no more in table position". If occur any error a message will displayed.
+</p>
+
 
 <p align="center">
 <img src = "https://github.com/Dfam92/Competition-Board/blob/main/Classification.png" width = "45%" > <img src = "https://github.com/Dfam92/Competition-Board/blob/main/ClassificationMenu.png" width = "45%" >
