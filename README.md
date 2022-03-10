@@ -3,7 +3,11 @@
 <h2 align = center>🎮 Unity UI/UX Project 🎮</h2>
 
 <h3 align = center> A small video of the project ⏯️ (https://youtu.be/MBZKBsj-RIw) </h2>
-
+<p align = "justify">
+"A snooker Championship UI/UX. Create your own board, set your name, and battle with friends. 
+Actually it's only a small idea of understand how it will work, in the future i will add a way to select pictures after set the name 
+and insert the images into animator. I also want to transform it in a small  smartphone app just for competing with friends."
+</p>
 
 # To make this Project I utilized: 
 Unity
