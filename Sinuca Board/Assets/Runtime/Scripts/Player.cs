@@ -1,8 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using SimpleFileBrowser;
+
+
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI playedGames;
     public TextMeshProUGUI ballInRole;
     public Texture2D playerImage;
+    private string playerImagePath;
     public List<int> myGames;
     public TextMeshProUGUI savedName;
     
@@ -51,5 +53,12 @@ public class Player : MonoBehaviour
         showName.SetActive(true);
         inputField.SetActive(false);
        
+    }
+    public void SetImage()
+    {
+        
+        this.playerImagePath = FileBrowser.Result[0];
+        WWW localFile = new WWW (this.playerImagePath);
+        this.playerImage = localFile.texture;
     }
 }

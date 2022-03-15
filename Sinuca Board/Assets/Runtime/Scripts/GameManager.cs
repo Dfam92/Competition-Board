@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using SimpleFileBrowser;
 
 public class GameManager : MonoBehaviour
 {
@@ -82,6 +83,11 @@ public class GameManager : MonoBehaviour
         mainMenu.transform.DOLocalMoveY(-1093, 1);
         numberOfPlayerMenu.transform.DOLocalMoveY(-8f, 1);
         StartCoroutine(DesactiveMenu(mainMenu,3));
+        if(FileBrowser.Success)
+        {
+            for (int i = 0; i < FileBrowser.Result.Length; i++)
+                Debug.Log(FileBrowser.Result[i]);
+        }
     }
 
     public void SetPlayers()
@@ -172,6 +178,10 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void OpenBrowser()
+    {
+        FileBrowser.ShowSaveDialog(null, null, FileBrowser.PickMode.Files, false, "C:\\", "Imagens", "Save As", "Save");
+    }
     public void Restart()
     {
         audioManager.enabled = false;
