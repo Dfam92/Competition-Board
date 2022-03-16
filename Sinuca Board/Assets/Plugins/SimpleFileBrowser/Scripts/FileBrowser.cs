@@ -348,9 +348,9 @@ namespace SimpleFileBrowser
 #pragma warning disable 0649
 		[Header( "Settings" )]
 		[SerializeField]
-		internal int minWidth = 380;
+		internal int minWidth = 1080;
 		[SerializeField]
-		internal int minHeight = 300;
+		internal int minHeight = 1920;
 
 		[SerializeField]
 		private float narrowScreenWidth = 380f;

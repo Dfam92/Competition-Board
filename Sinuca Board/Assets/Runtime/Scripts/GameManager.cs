@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public List<Player> playerCompletedGames;
     public int numberOfPlayers;
     public bool finalIsReady;
+    public bool browserIsActive;
     Vector3 standardVsPos;
     Vector3 standardP1Panel;
     Vector3 standardP2Panel;
@@ -181,16 +182,19 @@ public class GameManager : MonoBehaviour
 
     public void OpenBrowser()
     {
-        FileBrowser.ShowSaveDialog(null, null, FileBrowser.PickMode.Files, false, "C:\\", "Imagens", "Save As", "Save");
-        
+        if(!browserIsActive)
+        {
+            FileBrowser.ShowSaveDialog(null, null, FileBrowser.PickMode.Files, false, "C:\\", "Imagens", "Save As", "Save");
+            browserIsActive = true;
+        }
         
     }
 
-   
     public void Restart()
     {
         audioManager.enabled = false;
         sfxManager.enabled = false;
+        Player.isSetImageButtonActive = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private IEnumerator SelectPlayer1()

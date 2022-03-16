@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject showName;
     [SerializeField] TextMeshProUGUI playerName;
     [SerializeField] private int playerID;
+    [SerializeField] GameObject setImageButton;
     public GameObject gameObjectPosition;
     public TextMeshProUGUI victories;
     public TextMeshProUGUI playedGames;
@@ -20,7 +21,7 @@ public class Player : MonoBehaviour
     public string playerImagePath;
     public List<int> myGames;
     public TextMeshProUGUI savedName;
-    
+    public static bool isSetImageButtonActive = false;
     
     public bool isCompleted;
     public int balls;
@@ -46,14 +47,24 @@ public class Player : MonoBehaviour
             gameManager.playerCompletedGames.Add(this);
             isCompleted = true;
         }
-        
+        Debug.Log(isSetImageButtonActive);
     }
     public void SetName()
     {
-        savedName.text = playerName.text;
-        showName.SetActive(true);
-        inputField.SetActive(false);
-       
+        if(!isSetImageButtonActive)
+        {
+            savedName.text = playerName.text;
+            showName.SetActive(true);
+            inputField.SetActive(false);
+            this.setImageButton.SetActive(true);
+            isSetImageButtonActive = true;
+        }
+        else
+        {
+            
+            Debug.Log("Pls set the image first");
+            
+        }
     }
     public void SetImage()
     {
@@ -63,12 +74,14 @@ public class Player : MonoBehaviour
                 this.playerImagePath = FileBrowser.Result[0];
                 WWW localFile = new WWW(this.playerImagePath);
                 this.playerImage = localFile.texture;
-                
             }
             else
             {
                 this.playerImage = null;
                 
             }
+            this.setImageButton.SetActive(false);
+            gameManager.browserIsActive = false;
+            isSetImageButtonActive = false;
     }
 }
