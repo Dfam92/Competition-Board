@@ -16,23 +16,22 @@ public class GameManager : MonoBehaviour
     public GameObject battleMenu;
     public GameObject battleFinalMenu;
     public GameObject classificationMenu;
+    public WheelOfImages wheelOfImages;
+    public WheelOfImages wheelOfImages2;
 
     [Header("Players UI's")]
     [SerializeField] Text inputOfPlayersText;
     [SerializeField] Battle battle;
     [SerializeField] GameObject incorrectValueSetPlayers;
     [SerializeField] GameObject incorrectValueSetWins;
-    [SerializeField] GameObject p1Animation;
-    [SerializeField] GameObject p2Animation;
-    [SerializeField] Animator animator1;
-    [SerializeField] Animator animator2;
     [SerializeField] GameObject p1Panel;
     [SerializeField] GameObject p2Panel;
     [SerializeField] GameObject p1Name;
     [SerializeField] GameObject p2Name;
     public Toggle p1WinToggle;
     public Toggle p2WinToggle;
-   
+    public GameObject nameNotAssigned;
+
 
     [Header("General Buttons and Texts")]
     [SerializeField] GameObject continueButton;
@@ -41,7 +40,7 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Specifics instances")]
-    [SerializeField] Sprite standardSprite;
+    public Sprite standardSprite;
     [SerializeField] SfxManager sfxManager;
     [SerializeField] AudioManager audioManager;
     [SerializeField] RawImage vsImage;
@@ -49,6 +48,9 @@ public class GameManager : MonoBehaviour
     [Header(" ")]
     public List<Player> players;
     public List<Player> playerCompletedGames;
+    public List<Texture2D> playerImages;
+    public List<RawImage> animationImages;
+    public List<RawImage> animationImages2;
     public int numberOfPlayers;
     public bool finalIsReady;
     public bool browserIsActive;
@@ -62,10 +64,13 @@ public class GameManager : MonoBehaviour
         standardVsPos = vsImage.transform.position;
         standardP1Panel = p1Panel.transform.position;
         standardP2Panel = p2Panel.transform.position;
+        
 
     }
     private void Update()
     {
+        
+
         if(p1WinToggle.isOn == true)
         {
             p2WinToggle.isOn = false;
@@ -104,7 +109,6 @@ public class GameManager : MonoBehaviour
             FadeScript.m_Fading = false;
             StartCoroutine(ReArmFade());
             StartCoroutine(ActiveMenu(boxGenerator,5));
-            StartCoroutine(ActiveButton(playButton, 10));
             StartCoroutine(DesactiveMenu(creatingBoard, 5));
         }
        
@@ -124,7 +128,8 @@ public class GameManager : MonoBehaviour
             audioManager.audioSource.DOFade(0, 2);
             StartCoroutine(audioManager.ChangeToMAinMusic(1));
             StartCoroutine(ActiveButton(playButton, 2));
-            
+            wheelOfImages.gameObject.SetActive(false);
+            wheelOfImages2.gameObject.SetActive(false);
         }
         else
         {
@@ -139,17 +144,14 @@ public class GameManager : MonoBehaviour
             battleMenu.SetActive(true);
             continueButton.SetActive(false);
             boxGenerator.SetActive(false);
-            StartAnimation();
             SetPlayerInBattle();
             sfxManager.SpinSound();
             RestartPos();
             audioManager.audioSource.DOFade(0, 5);
             playButton.SetActive(false);
-            if (FileBrowser.Success)
-            {
-                for (int i = 0; i < FileBrowser.Result.Length; i++)
-                    Debug.Log(FileBrowser.Result[i]);
-            }
+            InputWheelImages();
+            wheelOfImages.gameObject.SetActive(true);
+            wheelOfImages2.gameObject.SetActive(true);
             
         }
         else
@@ -184,7 +186,7 @@ public class GameManager : MonoBehaviour
     {
         if(!browserIsActive)
         {
-            FileBrowser.ShowSaveDialog(null, null, FileBrowser.PickMode.Files, false, "C:\\", "Imagens", "Save As", "Save");
+            FileBrowser.ShowSaveDialog(null, null, FileBrowser.PickMode.Files, false, " ", " ", "Save As", "Save");
             browserIsActive = true;
         }
         
@@ -201,16 +203,17 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         p1Name.SetActive(true);
-        p1Animation.SetActive(false);
         battle.p1Image.gameObject.SetActive(true);
         sfxManager.SelectSound();
         battle.StartBatlle();
+        wheelOfImages.StopAllCoroutines();
+        wheelOfImages.DisableAllImages();
     }
     private IEnumerator SelectPlayer2()
     {
         yield return new WaitForSeconds(4);
         p2Name.SetActive(true);
-        p2Animation.SetActive(false);
+        
         StartCoroutine(ActiveMenu(p1Panel, 0.5f));
         StartCoroutine(ActiveMenu(p2Panel, 0.5f));
         sfxManager.SelectSound();
@@ -220,24 +223,14 @@ public class GameManager : MonoBehaviour
         p2Panel.transform.DOLocalMoveZ(0, 0.75f);
         audioManager.BattleMusics();
     }
-    public void StartAnimation()
-    {
-        animator1.SetBool("isSorting", true);
-        animator2.SetBool("isSorting2", true);
-    }
+   
     private void RearmAnimation()
     {
-        animator1.SetBool("isSorting", false);
-        animator2.SetBool("isSorting2", false);
         p1Panel.SetActive(false);
         p2Panel.SetActive(false);
         continueButton.SetActive(false);
-        p1Animation.SetActive(true);
-        p2Animation.SetActive(true);
         battle.p1Image.gameObject.SetActive(false);
         battle.p2Image.gameObject.SetActive(false);
-        p1Animation.GetComponent<SpriteRenderer>().sprite = standardSprite;
-        p2Animation.GetComponent<SpriteRenderer>().sprite = standardSprite;
     }
 
     private void SetPlayerInBattle()
@@ -283,5 +276,23 @@ public class GameManager : MonoBehaviour
         p2Panel.transform.position = standardP2Panel;
     }
 
+    private void InputWheelImages()
+    {
+        for (int i = 0; i < numberOfPlayers; i++)
+        {
+            animationImages[i].texture = playerImages[i];
+            animationImages2[i].texture = playerImages[i];
+        }
+    }
+
+    public void CheckAllPlayerDone()
+    {
+        Debug.Log(playerImages.Count);
+        Debug.Log(numberOfPlayers);
+        if (playerImages.Count == numberOfPlayers)
+        {
+            playButton.SetActive(true);
+        }
+    }
    
 }

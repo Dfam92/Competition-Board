@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
             gameManager.playerCompletedGames.Add(this);
             isCompleted = true;
         }
-        Debug.Log(isSetImageButtonActive);
+       
     }
     public void SetName()
     {
@@ -61,8 +61,8 @@ public class Player : MonoBehaviour
         }
         else
         {
-            
-            Debug.Log("Pls set the image first");
+
+            gameManager.nameNotAssigned.SetActive(true);
             
         }
     }
@@ -74,14 +74,18 @@ public class Player : MonoBehaviour
                 this.playerImagePath = FileBrowser.Result[0];
                 WWW localFile = new WWW(this.playerImagePath);
                 this.playerImage = localFile.texture;
+                gameManager.playerImages.Add(this.playerImage);
             }
             else
             {
-                this.playerImage = null;
-                
-            }
+                this.playerImage = gameManager.standardSprite.texture;
+                gameManager.playerImages.Add(this.playerImage);
+
+        }
             this.setImageButton.SetActive(false);
             gameManager.browserIsActive = false;
             isSetImageButtonActive = false;
+            gameManager.nameNotAssigned.SetActive(false);
+            gameManager.CheckAllPlayerDone();
     }
 }
