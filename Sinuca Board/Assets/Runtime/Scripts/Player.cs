@@ -11,15 +11,16 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject inputField;
     [SerializeField] GameObject showName;
     [SerializeField] TextMeshProUGUI playerName;
-
+    [SerializeField] private int playerID;
     public GameObject gameObjectPosition;
     public TextMeshProUGUI victories;
     public TextMeshProUGUI playedGames;
     public TextMeshProUGUI ballInRole;
     public Texture2D playerImage;
-    private string playerImagePath;
+    public string playerImagePath;
     public List<int> myGames;
     public TextMeshProUGUI savedName;
+    
     
     public bool isCompleted;
     public int balls;
@@ -56,9 +57,18 @@ public class Player : MonoBehaviour
     }
     public void SetImage()
     {
-        
-        this.playerImagePath = FileBrowser.Result[0];
-        WWW localFile = new WWW (this.playerImagePath);
-        this.playerImage = localFile.texture;
+        //TODO Create a button to set Images ForEachPlayer.
+            if (FileBrowser.Success)
+            {
+                this.playerImagePath = FileBrowser.Result[0];
+                WWW localFile = new WWW(this.playerImagePath);
+                this.playerImage = localFile.texture;
+                
+            }
+            else
+            {
+                this.playerImage = null;
+                
+            }
     }
 }

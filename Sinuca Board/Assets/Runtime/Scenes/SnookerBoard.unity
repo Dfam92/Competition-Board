@@ -840,7 +840,7 @@ RectTransform:
   - {fileID: 944830371}
   - {fileID: 1775103630}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -863,11 +863,13 @@ MonoBehaviour:
   inputField: {fileID: 944830370}
   showName: {fileID: 1775103629}
   playerName: {fileID: 1890896845}
+  playerID: 16
   gameObjectPosition: {fileID: 58315347}
   victories: {fileID: 1069968623}
   playedGames: {fileID: 1571001378}
   ballInRole: {fileID: 1530823388}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 1775103631}
   isCompleted: 0
@@ -2986,7 +2988,7 @@ RectTransform:
   - {fileID: 2128725000}
   - {fileID: 1917006506}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3009,11 +3011,13 @@ MonoBehaviour:
   inputField: {fileID: 2128724999}
   showName: {fileID: 1917006505}
   playerName: {fileID: 268364567}
+  playerID: 11
   gameObjectPosition: {fileID: 156849117}
   victories: {fileID: 1556123560}
   playedGames: {fileID: 1643495843}
   ballInRole: {fileID: 188552192}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 1917006507}
   isCompleted: 0
@@ -3051,7 +3055,7 @@ RectTransform:
   - {fileID: 1349781633}
   - {fileID: 1269827217}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3074,11 +3078,13 @@ MonoBehaviour:
   inputField: {fileID: 1349781632}
   showName: {fileID: 1269827216}
   playerName: {fileID: 1663616482}
+  playerID: 7
   gameObjectPosition: {fileID: 159824897}
   victories: {fileID: 1287196312}
   playedGames: {fileID: 916246648}
   ballInRole: {fileID: 685102984}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 1269827218}
   isCompleted: 0
@@ -5051,6 +5057,7 @@ RectTransform:
   - {fileID: 1447682488}
   - {fileID: 669920946}
   - {fileID: 1374614946}
+  - {fileID: 738681901}
   - {fileID: 405845763}
   - {fileID: 159824898}
   - {fileID: 1855683602}
@@ -5897,11 +5904,13 @@ MonoBehaviour:
   inputField: {fileID: 1035741322}
   showName: {fileID: 121404020}
   playerName: {fileID: 549441891}
+  playerID: 1
   gameObjectPosition: {fileID: 337813794}
   victories: {fileID: 47301137}
   playedGames: {fileID: 66489126}
   ballInRole: {fileID: 1068495206}
   playerImage: {fileID: 2800000, guid: 683af5f7eb7efe44181a5c4a2feec876, type: 3}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 121404022}
   isCompleted: 0
@@ -7263,7 +7272,7 @@ RectTransform:
   m_Children:
   - {fileID: 753049745}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7761,7 +7770,7 @@ RectTransform:
   - {fileID: 1644557289}
   - {fileID: 133408342}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7784,11 +7793,13 @@ MonoBehaviour:
   inputField: {fileID: 1644557288}
   showName: {fileID: 133408341}
   playerName: {fileID: 1677213064}
+  playerID: 6
   gameObjectPosition: {fileID: 405845762}
   victories: {fileID: 442648772}
   playedGames: {fileID: 838546470}
   ballInRole: {fileID: 1431716200}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 133408343}
   isCompleted: 0
@@ -8380,27 +8391,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1321990526}
-        m_TargetAssemblyTypeName: SfxManager, Assembly-CSharp
-        m_MethodName: WritingSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_OnSubmit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelect:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeselect:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 468391240}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: SetName
@@ -8425,6 +8415,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_OnSubmit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeselect:
+    m_PersistentCalls:
+      m_Calls: []
   m_OnTextSelection:
     m_PersistentCalls:
       m_Calls: []
@@ -9129,11 +9128,13 @@ MonoBehaviour:
   inputField: {fileID: 441228294}
   showName: {fileID: 558600221}
   playerName: {fileID: 1382639880}
+  playerID: 0
   gameObjectPosition: {fileID: 468391237}
   victories: {fileID: 5396493247545003437}
   playedGames: {fileID: 5396493247603324213}
   ballInRole: {fileID: 5396493247841806610}
   playerImage: {fileID: 2800000, guid: 5c3858960ddd04b42a81715f4019dd31, type: 3}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 558600223}
   isCompleted: 0
@@ -9556,7 +9557,7 @@ RectTransform:
   - {fileID: 1267862280}
   - {fileID: 1079931611}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9579,11 +9580,13 @@ MonoBehaviour:
   inputField: {fileID: 1267862279}
   showName: {fileID: 1079931610}
   playerName: {fileID: 586984609}
+  playerID: 14
   gameObjectPosition: {fileID: 527273749}
   victories: {fileID: 1915619619}
   playedGames: {fileID: 1357512973}
   ballInRole: {fileID: 1408684146}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 1079931612}
   isCompleted: 0
@@ -9702,15 +9705,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_OnSubmit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelect:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeselect:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 1447682490}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: SetName
@@ -9723,6 +9717,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2029463266}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OpenBrowser
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_OnSubmit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeselect:
+    m_PersistentCalls:
+      m_Calls: []
   m_OnTextSelection:
     m_PersistentCalls:
       m_Calls: []
@@ -10201,8 +10216,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1675232023}
+  m_Children: []
   m_Father: {fileID: 468391238}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11707,7 +11721,7 @@ RectTransform:
   m_Children:
   - {fileID: 378111022}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13176,11 +13190,13 @@ MonoBehaviour:
   inputField: {fileID: 1655781029}
   showName: {fileID: 1802848119}
   playerName: {fileID: 429362693}
+  playerID: 3
   gameObjectPosition: {fileID: 669920945}
   victories: {fileID: 575966652}
   playedGames: {fileID: 1123566096}
   ballInRole: {fileID: 936305524}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 1802848122}
   isCompleted: 0
@@ -14104,18 +14120,18 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738681900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 112.5}
-  m_LocalScale: {x: 0.10691673, y: 0.10691673, z: 0.10691673}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458520114}
   - {fileID: 211009045}
   - {fileID: 857296015}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 268874291}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11267.164, y: 5888.1177}
+  m_AnchoredPosition: {x: 96402.25, y: 50022.13}
   m_SizeDelta: {x: 100, y: 2.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &738681902
@@ -14134,11 +14150,13 @@ MonoBehaviour:
   inputField: {fileID: 211009044}
   showName: {fileID: 857296014}
   playerName: {fileID: 1885083722}
+  playerID: 5
   gameObjectPosition: {fileID: 738681900}
   victories: {fileID: 391083653}
   playedGames: {fileID: 1835199447}
   ballInRole: {fileID: 2091839562}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 857296016}
   isCompleted: 0
@@ -16293,7 +16311,7 @@ RectTransform:
   - {fileID: 340438936}
   - {fileID: 2001682578}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16316,11 +16334,13 @@ MonoBehaviour:
   inputField: {fileID: 340438935}
   showName: {fileID: 2001682577}
   playerName: {fileID: 1914778789}
+  playerID: 13
   gameObjectPosition: {fileID: 930391703}
   victories: {fileID: 1017008645}
   playedGames: {fileID: 698791481}
   ballInRole: {fileID: 353375847}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 2001682579}
   isCompleted: 0
@@ -17168,7 +17188,7 @@ RectTransform:
   - {fileID: 562860764}
   - {fileID: 174457658}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17191,11 +17211,13 @@ MonoBehaviour:
   inputField: {fileID: 562860763}
   showName: {fileID: 174457657}
   playerName: {fileID: 233188779}
+  playerID: 15
   gameObjectPosition: {fileID: 982305972}
   victories: {fileID: 231730919}
   playedGames: {fileID: 1355350228}
   ballInRole: {fileID: 1826141458}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 174457659}
   isCompleted: 0
@@ -18609,15 +18631,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_OnSubmit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelect:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeselect:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 337813797}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: SetName
@@ -18630,6 +18643,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2029463266}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OpenBrowser
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_OnSubmit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeselect:
+    m_PersistentCalls:
+      m_Calls: []
   m_OnTextSelection:
     m_PersistentCalls:
       m_Calls: []
@@ -24855,11 +24889,13 @@ MonoBehaviour:
   inputField: {fileID: 2112057770}
   showName: {fileID: 1177174421}
   playerName: {fileID: 1780688985}
+  playerID: 4
   gameObjectPosition: {fileID: 1374614945}
   victories: {fileID: 2086320279}
   playedGames: {fileID: 905910517}
   ballInRole: {fileID: 751159725}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 1177174423}
   isCompleted: 0
@@ -26407,11 +26443,13 @@ MonoBehaviour:
   inputField: {fileID: 541806183}
   showName: {fileID: 1031824953}
   playerName: {fileID: 1412048373}
+  playerID: 2
   gameObjectPosition: {fileID: 1447682487}
   victories: {fileID: 1310766782}
   playedGames: {fileID: 149709659}
   ballInRole: {fileID: 865946160}
   playerImage: {fileID: 2800000, guid: d163745e24c15cc46b381ead7c67f5a1, type: 3}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 1031824955}
   isCompleted: 0
@@ -26796,7 +26834,7 @@ RectTransform:
   - {fileID: 2010659964}
   - {fileID: 1382468029}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26819,11 +26857,13 @@ MonoBehaviour:
   inputField: {fileID: 2010659963}
   showName: {fileID: 1382468028}
   playerName: {fileID: 1905985476}
+  playerID: 10
   gameObjectPosition: {fileID: 1500977898}
   victories: {fileID: 59384285}
   playedGames: {fileID: 1971073610}
   ballInRole: {fileID: 1942838922}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 1382468030}
   isCompleted: 0
@@ -27204,7 +27244,7 @@ RectTransform:
   - {fileID: 1627566731}
   - {fileID: 1632116546}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -27683,7 +27723,7 @@ RectTransform:
   - {fileID: 1017073757}
   - {fileID: 1919178979}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -27706,11 +27746,13 @@ MonoBehaviour:
   inputField: {fileID: 1017073756}
   showName: {fileID: 1919178978}
   playerName: {fileID: 1194387491}
+  playerID: 17
   gameObjectPosition: {fileID: 1554529048}
   victories: {fileID: 439172484}
   playedGames: {fileID: 1765947713}
   ballInRole: {fileID: 1056184498}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 1919178980}
   isCompleted: 0
@@ -28352,7 +28394,7 @@ RectTransform:
   - {fileID: 1762446421}
   - {fileID: 1072226666}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28375,11 +28417,13 @@ MonoBehaviour:
   inputField: {fileID: 1762446420}
   showName: {fileID: 1072226665}
   playerName: {fileID: 306985381}
+  playerID: 12
   gameObjectPosition: {fileID: 1604862835}
   victories: {fileID: 1699016853}
   playedGames: {fileID: 569864512}
   ballInRole: {fileID: 699203065}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 1072226667}
   isCompleted: 0
@@ -29686,7 +29730,6 @@ GameObject:
   - component: {fileID: 1647755695}
   - component: {fileID: 1647755697}
   - component: {fileID: 1647755696}
-  - component: {fileID: 1647755698}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -29754,18 +29797,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647755694}
   m_CullTransparentMesh: 1
---- !u!114 &1647755698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647755694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92a454f7727425e44ab97eb819505aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1655781029
 GameObject:
   m_ObjectHideFlags: 0
@@ -30367,139 +30398,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673142733}
   m_CullTransparentMesh: 1
---- !u!1 &1675232022
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1675232023}
-  - component: {fileID: 1675232026}
-  - component: {fileID: 1675232025}
-  - component: {fileID: 1675232024}
-  m_Layer: 5
-  m_Name: Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1675232023
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675232022}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1988191525}
-  m_Father: {fileID: 558600222}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1675232024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675232022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1675232025}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 468391240}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: SetImage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1675232025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675232022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1675232026
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675232022}
-  m_CullTransparentMesh: 1
 --- !u!1 &1677213062
 GameObject:
   m_ObjectHideFlags: 0
@@ -30971,7 +30869,7 @@ RectTransform:
   - {fileID: 570591867}
   - {fileID: 1965186182}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33738,7 +33636,7 @@ RectTransform:
   - {fileID: 364724807}
   - {fileID: 767831631}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33761,11 +33659,13 @@ MonoBehaviour:
   inputField: {fileID: 364724806}
   showName: {fileID: 767831630}
   playerName: {fileID: 1441952322}
+  playerID: 8
   gameObjectPosition: {fileID: 1855683601}
   victories: {fileID: 389113422}
   playedGames: {fileID: 1485630325}
   ballInRole: {fileID: 1636498282}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 767831632}
   isCompleted: 0
@@ -36810,85 +36710,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975273075}
   m_CullTransparentMesh: 1
---- !u!1 &1988191524
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1988191525}
-  - component: {fileID: 1988191527}
-  - component: {fileID: 1988191526}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1988191525
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988191524}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1675232023}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1988191526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988191524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Button
---- !u!222 &1988191527
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988191524}
-  m_CullTransparentMesh: 1
 --- !u!1 &2001682577
 GameObject:
   m_ObjectHideFlags: 0
@@ -38172,7 +37993,7 @@ RectTransform:
   - {fileID: 287906149}
   - {fileID: 1825221970}
   m_Father: {fileID: 268874291}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -38195,11 +38016,13 @@ MonoBehaviour:
   inputField: {fileID: 287906148}
   showName: {fileID: 1825221969}
   playerName: {fileID: 1000955353}
+  playerID: 9
   gameObjectPosition: {fileID: 2095242666}
   victories: {fileID: 627043851}
   playedGames: {fileID: 1700039825}
   ballInRole: {fileID: 1141871421}
   playerImage: {fileID: 0}
+  playerImagePath: 
   myGames: 
   savedName: {fileID: 1825221971}
   isCompleted: 0
