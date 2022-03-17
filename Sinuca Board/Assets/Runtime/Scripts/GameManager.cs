@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("Menus")]
     [SerializeField] GameObject numberOfPlayerMenu;
     [SerializeField] GameObject mainMenu;
-    [SerializeField] GameObject creatingBoard;
+    public GameObject creatingBoard;
     public GameObject boxGenerator;
     public GameObject battleMenu;
     public GameObject battleFinalMenu;
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject p2Panel;
     [SerializeField] GameObject p1Name;
     [SerializeField] GameObject p2Name;
+    public GameObject blackBoard;
     public Toggle p1WinToggle;
     public Toggle p2WinToggle;
     public GameObject nameNotAssigned;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] SfxManager sfxManager;
     [SerializeField] AudioManager audioManager;
     [SerializeField] RawImage vsImage;
+    public GameObject mainEventSystem;
 
     [Header(" ")]
     public List<Player> players;
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
     public int numberOfPlayers;
     public bool finalIsReady;
     public bool browserIsActive;
+    private bool imagesWereSetted;
     Vector3 standardVsPos;
     Vector3 standardP1Panel;
     Vector3 standardP2Panel;
@@ -65,22 +68,23 @@ public class GameManager : MonoBehaviour
         standardP1Panel = p1Panel.transform.position;
         standardP2Panel = p2Panel.transform.position;
         
-
     }
     private void Update()
     {
-        
-
-        if(p1WinToggle.isOn == true)
+        CheckVictory();
+        // how the fileBrowser has your own EventSystem this was done for makes sure of only 1 is active in the runtime.
+        if(!FileBrowser.IsOpen)
         {
-            p2WinToggle.isOn = false;
-            continueButton.SetActive(true);
-        }
-        else if (p2WinToggle.isOn == true)
-        {
-            p1WinToggle.isOn = false;
-            continueButton.SetActive(true);
-
+            mainEventSystem.SetActive(true);
+            if(FileBrowser.Success)
+            {
+                blackBoard.SetActive(false);
+            }
+            else
+            {
+                blackBoard.SetActive(false);
+            }
+             
         }
     }
 
@@ -89,7 +93,6 @@ public class GameManager : MonoBehaviour
         mainMenu.transform.DOLocalMoveY(-1093, 1);
         numberOfPlayerMenu.transform.DOLocalMoveY(-8f, 1);
         StartCoroutine(DesactiveMenu(mainMenu,3));
-       
     }
 
     public void SetPlayers()
@@ -114,26 +117,23 @@ public class GameManager : MonoBehaviour
        
     }
 
-    public void UpdateScore()
+    public void OpenBrowser()
     {
-        if(p1WinToggle.isOn == true || p2WinToggle.isOn == true)
+        if (!browserIsActive)
         {
-            battleMenu.SetActive(false);
-            boxGenerator.SetActive(true);
-            battle.player1.BallInRole(battle.ballInputValue1);
-            battle.player2.BallInRole(battle.ballInputValue2);
-            IncreaseVictories(battle.player1, battle.player2, battle.victoryValue);
-            RearmAnimation();
-            incorrectValueSetWins.SetActive(false);
-            audioManager.audioSource.DOFade(0, 2);
-            StartCoroutine(audioManager.ChangeToMAinMusic(1));
-            StartCoroutine(ActiveButton(playButton, 2));
-            wheelOfImages.gameObject.SetActive(false);
-            wheelOfImages2.gameObject.SetActive(false);
+            FileBrowser.ShowSaveDialog(null, null, FileBrowser.PickMode.Files, false, " ", " ", "Save As", "Save");
+            browserIsActive = true;
+            mainEventSystem.SetActive(false);
+            
         }
-        else
+
+    }
+
+    public void CheckAllPlayerDone()
+    {
+        if (playerImages.Count == numberOfPlayers)
         {
-            incorrectValueSetWins.SetActive(true);
+            playButton.SetActive(true);
         }
     }
 
@@ -146,13 +146,13 @@ public class GameManager : MonoBehaviour
             boxGenerator.SetActive(false);
             SetPlayerInBattle();
             sfxManager.SpinSound();
-            RestartPos();
+            RestartUIBattlePos();
             audioManager.audioSource.DOFade(0, 5);
             playButton.SetActive(false);
-            InputWheelImages();
+            InputImagesInWhells();
             wheelOfImages.gameObject.SetActive(true);
             wheelOfImages2.gameObject.SetActive(true);
-            
+
         }
         else
         {
@@ -160,7 +160,93 @@ public class GameManager : MonoBehaviour
             classificationMenu.SetActive(true);
             audioManager.DrumLoop();
         }
-       
+
+    }
+
+    private void InputImagesInWhells()
+    {
+        if (!imagesWereSetted)
+        {
+            for (int i = 0; i < numberOfPlayers; i++)
+            {
+                animationImages[i].texture = playerImages[i];
+                animationImages2[i].texture = playerImages[i];
+            }
+            imagesWereSetted = true;
+        }
+    }
+
+    private void SetPlayerInBattle()
+    {
+        battle.p2IsDifferent = false;
+        p1Name.SetActive(false);
+        p2Name.SetActive(false);
+        StartCoroutine(SelectPlayer1());
+        StartCoroutine(SelectPlayer2());
+    }
+
+    private IEnumerator SelectPlayer1()
+    {
+        yield return new WaitForSeconds(3);
+        p1Name.SetActive(true);
+        battle.p1Image.gameObject.SetActive(true);
+        sfxManager.SelectSound();
+        battle.StartBatlle();
+        //wheelOfImages.DisableWheel1();
+        wheelOfImages.gameObject.SetActive(false);
+    }
+    private IEnumerator SelectPlayer2()
+    {
+        yield return new WaitForSeconds(4);
+        p2Name.SetActive(true);
+
+        StartCoroutine(ActiveMenu(p1Panel, 0.5f));
+        StartCoroutine(ActiveMenu(p2Panel, 0.5f));
+        sfxManager.SelectSound();
+        battle.p2Image.gameObject.SetActive(true);
+        vsImage.transform.DOLocalMoveZ(0, 0.75f);
+        p1Panel.transform.DOLocalMoveZ(0, 0.75f);
+        p2Panel.transform.DOLocalMoveZ(0, 0.75f);
+        audioManager.BattleMusics();
+        //wheelOfImages2.DisableWheel2();
+        wheelOfImages2.gameObject.SetActive(false);
+    }
+   
+    private void CheckVictory()
+    {
+        if (p1WinToggle.isOn == true)
+        {
+            p2WinToggle.isOn = false;
+            continueButton.SetActive(true);
+        }
+        else if (p2WinToggle.isOn == true)
+        {
+            p1WinToggle.isOn = false;
+            continueButton.SetActive(true);
+
+        }
+    }
+    public void UpdateScore()
+    {
+        if(p1WinToggle.isOn == true || p2WinToggle.isOn == true)
+        {
+            
+            battleMenu.SetActive(false);
+            boxGenerator.SetActive(true);
+            battle.player1.BallInRole(battle.ballInputValue1);
+            battle.player2.BallInRole(battle.ballInputValue2);
+            IncreaseVictories(battle.player1, battle.player2, battle.victoryValue);
+            RearmAnimation();
+            audioManager.audioSource.DOFade(0, 2);
+            StartCoroutine(audioManager.ChangeToMAinMusic(1));
+            StartCoroutine(ActiveButton(playButton, 2));
+            incorrectValueSetWins.SetActive(false);
+            wheelOfImages.DisableAll();
+        }
+        else
+        {
+            incorrectValueSetWins.SetActive(true);
+        }
     }
 
     private void IncreaseVictories(Player p1,Player p2, int value = 0)
@@ -177,53 +263,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
-    public void OpenBrowser()
-    {
-        if(!browserIsActive)
-        {
-            FileBrowser.ShowSaveDialog(null, null, FileBrowser.PickMode.Files, false, " ", " ", "Save As", "Save");
-            browserIsActive = true;
-        }
-        
-    }
-
-    public void Restart()
-    {
-        audioManager.enabled = false;
-        sfxManager.enabled = false;
-        Player.isSetImageButtonActive = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-    private IEnumerator SelectPlayer1()
-    {
-        yield return new WaitForSeconds(3);
-        p1Name.SetActive(true);
-        battle.p1Image.gameObject.SetActive(true);
-        sfxManager.SelectSound();
-        battle.StartBatlle();
-        wheelOfImages.StopAllCoroutines();
-        wheelOfImages.DisableAllImages();
-    }
-    private IEnumerator SelectPlayer2()
-    {
-        yield return new WaitForSeconds(4);
-        p2Name.SetActive(true);
-        
-        StartCoroutine(ActiveMenu(p1Panel, 0.5f));
-        StartCoroutine(ActiveMenu(p2Panel, 0.5f));
-        sfxManager.SelectSound();
-        battle.p2Image.gameObject.SetActive(true);
-        vsImage.transform.DOLocalMoveZ(0, 0.75f);
-        p1Panel.transform.DOLocalMoveZ(0, 0.75f);
-        p2Panel.transform.DOLocalMoveZ(0, 0.75f);
-        audioManager.BattleMusics();
-    }
-   
     private void RearmAnimation()
     {
         p1Panel.SetActive(false);
@@ -233,14 +272,31 @@ public class GameManager : MonoBehaviour
         battle.p2Image.gameObject.SetActive(false);
     }
 
-    private void SetPlayerInBattle()
+    private void RestartUIBattlePos()
     {
-        battle.p2IsDifferent = false;
-        p1Name.SetActive(false);
-        p2Name.SetActive(false);
-        StartCoroutine(SelectPlayer1());
-        StartCoroutine(SelectPlayer2());
+        vsImage.transform.position = standardVsPos;
+        p1Panel.transform.position = standardP1Panel;
+        p2Panel.transform.position = standardP2Panel;
     }
+
+    public void Restart()
+    {
+        audioManager.enabled = false;
+        sfxManager.enabled = false;
+        Player.isSetImageButtonActive = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ShowSafetyBlackBoard()
+    {
+        blackBoard.SetActive(true);
+    }
+
     private IEnumerator DesactiveMenu(GameObject menu,float timeToWait)
     {
         yield return new WaitForSeconds(timeToWait);
@@ -248,7 +304,6 @@ public class GameManager : MonoBehaviour
         FadeScript.timeOfFade = 1f;
         FadeScript.m_Fading = false;
     }
-
     private IEnumerator ActiveMenu(GameObject menu,float timeToWait)
     {
         yield return new WaitForSeconds(timeToWait);
@@ -260,39 +315,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(timeToWait);
         button.SetActive(true);
     }
-
     private IEnumerator ReArmFade()
     {
         yield return new WaitForSeconds(3);
         FadeScript.timeOfFade = 0.5f;
         FadeScript.m_Fading = true;
 
-    }
-   
-    private void RestartPos()
-    {
-        vsImage.transform.position = standardVsPos;
-        p1Panel.transform.position = standardP1Panel;
-        p2Panel.transform.position = standardP2Panel;
-    }
-
-    private void InputWheelImages()
-    {
-        for (int i = 0; i < numberOfPlayers; i++)
-        {
-            animationImages[i].texture = playerImages[i];
-            animationImages2[i].texture = playerImages[i];
-        }
-    }
-
-    public void CheckAllPlayerDone()
-    {
-        Debug.Log(playerImages.Count);
-        Debug.Log(numberOfPlayers);
-        if (playerImages.Count == numberOfPlayers)
-        {
-            playButton.SetActive(true);
-        }
     }
    
 }

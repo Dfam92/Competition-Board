@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
             inputField.SetActive(false);
             this.setImageButton.SetActive(true);
             isSetImageButtonActive = true;
+            gameManager.blackBoard.SetActive(true);
         }
         else
         {
@@ -75,17 +76,19 @@ public class Player : MonoBehaviour
                 WWW localFile = new WWW(this.playerImagePath);
                 this.playerImage = localFile.texture;
                 gameManager.playerImages.Add(this.playerImage);
+                
             }
             else
             {
                 this.playerImage = gameManager.standardSprite.texture;
                 gameManager.playerImages.Add(this.playerImage);
 
-        }
+            }
             this.setImageButton.SetActive(false);
             gameManager.browserIsActive = false;
             isSetImageButtonActive = false;
             gameManager.nameNotAssigned.SetActive(false);
             gameManager.CheckAllPlayerDone();
     }
+
 }

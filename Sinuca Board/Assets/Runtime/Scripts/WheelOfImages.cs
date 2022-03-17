@@ -15,15 +15,35 @@ public class WheelOfImages : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(imageCount);
-        Debug.Log(gameManager.playerImages.Count);
-        if (imageCount == gameManager.playerImages.Count)
+        if (this.imageCount == gameManager.playerImages.Count)
         {
-            imageCount = 0;
+            this.imageCount = 0;
         }
     }
-  
-    public void DisableAllImages()
+
+    private void OnDisable()
+    {
+        this.StopAllCoroutines();
+        this.imageCount = 0;
+    }
+
+    public void DisableWheel1()
+    {
+        for (int i = 0; i < gameManager.animationImages.Count; i++)
+        {
+            gameManager.animationImages[i].gameObject.SetActive(false);
+            
+        }
+    }
+    public void DisableWheel2()
+    {
+        for (int i = 0; i < gameManager.animationImages.Count; i++)
+        {
+            gameManager.animationImages2[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void DisableAll()
     {
         for (int i = 0; i < gameManager.animationImages.Count; i++)
         {
@@ -34,19 +54,18 @@ public class WheelOfImages : MonoBehaviour
 
     IEnumerator ActiveImages()
     {
-        yield return new WaitForSeconds(timeToActiveImages);
+        yield return new WaitForSeconds(this.timeToActiveImages);
         gameManager.animationImages[imageCount].gameObject.SetActive(true);
         gameManager.animationImages2[imageCount].gameObject.SetActive(true);
         StartCoroutine(DesactiveImages());
     }
     IEnumerator DesactiveImages()
     {
-        yield return new WaitForSeconds(timeToChangeImages);
+        yield return new WaitForSeconds(this.timeToChangeImages);
         gameManager.animationImages[imageCount].gameObject.SetActive(false);
         gameManager.animationImages2[imageCount].gameObject.SetActive(false);
-        imageCount++;
+        this.imageCount++;
         StartCoroutine(ActiveImages());
     }
 
-    //TODO STOP CORROUTINES
 }
