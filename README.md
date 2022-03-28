@@ -17,6 +17,7 @@ Unity
 - [2D Casual UI](https://assetstore.unity.com/packages/2d/gui/icons/2d-casual-ui-hd-82080)
 - [3D Games Effect Pack](https://assetstore.unity.com/packages/vfx/particles/3d-games-effects-pack-free-42285)
 - [SoundBits](https://assetstore.unity.com/packages/audio/sound-fx/soundbits-free-sound-fx-collection-31837)
+- [Runtime File Browser](https://assetstore.unity.com/packages/tools/gui/runtime-file-browser-113006)
 
 External Editors
 - [Audacity](https://www.audacityteam.org/download/)
@@ -37,7 +38,7 @@ After click Start button, the set player menu will appear, here you can choose h
 </p>
 
 When you set player the Main Board will appear and you will be capable of input the name of players.
-
+<p>***New feature: Now you can Select the player image after set name with Runtime file Browser.*** </p>
 <p align="center">
 <img src = "https://github.com/Dfam92/Competition-Board/blob/main/MainBoard.png" width = "45%" > <img src = "https://github.com/Dfam92/Competition-Board/blob/main/MainBoardWithNames.png" width = "45%" >
 </p>
